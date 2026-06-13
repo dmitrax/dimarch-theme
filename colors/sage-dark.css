@@ -1,0 +1,22 @@
+/* DimArch Sage — Dark
+   Used by: Ghostty, Waybar, rofi, hyprlock, mako, terminal tools
+   ---------------------------------------------------------------- */
+
+:root {
+  /* Shared accent */
+  --sage:             #7fb89e;
+  --sage-dark:        #6daa8f;
+  --sage-vivid:       #35a77c;
+  --sage-deep:        #2a9068;
+
+  /* Backgrounds */
+  --bg-primary:       #262f2c;
+  --bg-secondary:     #212b28;
+  --bg-tertiary:      #1d2623;
+
+  /* Surface */
+  --border:           #3a4a42;
+
+  /* Text */
+  --text:             #d3c6aa;
+}

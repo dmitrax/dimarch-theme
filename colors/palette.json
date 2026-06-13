@@ -1,0 +1,25 @@
+{
+  "_comment": "DimArch Sage — official color palette",
+
+  "shared": {
+    "sage":       "#7fb89e",
+    "sage_dark":  "#6daa8f",
+    "sage_vivid": "#35a77c",
+    "sage_deep":  "#2a9068"
+  },
+
+  "dark": {
+    "bg_primary":   "#262f2c",
+    "bg_secondary": "#212b28",
+    "bg_tertiary":  "#1d2623",
+    "border":       "#3a4a42",
+    "text":         "#d3c6aa"
+  },
+
+  "light": {
+    "bg_primary":   "#f8f4ea",
+    "bg_secondary": "#f3edd8",
+    "border":       "#e8e1cc",
+    "text":         "#2d3a2e"
+  }
+}

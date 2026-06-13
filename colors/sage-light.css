@@ -1,0 +1,21 @@
+/* DimArch Sage — Light
+   Used by: Obsidian, SDDM, Firefox
+   ---------------------------------------------------------------- */
+
+:root {
+  /* Shared accent */
+  --sage:             #7fb89e;
+  --sage-dark:        #6daa8f;
+  --sage-vivid:       #35a77c;
+  --sage-deep:        #2a9068;
+
+  /* Backgrounds */
+  --bg-primary:       #f8f4ea;
+  --bg-secondary:     #f3edd8;
+
+  /* Surface */
+  --border:           #e8e1cc;
+
+  /* Text */
+  --text:             #2d3a2e;
+}
