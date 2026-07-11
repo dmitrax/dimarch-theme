@@ -8,6 +8,13 @@
     "sage_deep":  "#2a9068"
   },
 
+  "_semantic_comment": "Status colors — meaning, not decoration. Do not use for brand accents; kept deliberately off-hue from sage so they read as signals. See dimarch waybar/style.css and swaync/style.css for the original usage this was extracted from.",
+
+  "semantic": {
+    "warning": "#d97706",
+    "urgent":  "#d96c6c"
+  },
+
   "dark": {
     "bg_primary":   "#262f2c",
     "bg_secondary": "#212b28",

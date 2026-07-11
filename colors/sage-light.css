@@ -9,6 +9,11 @@
   --sage-vivid:       #35a77c;
   --sage-deep:        #2a9068;
 
+  /* Semantic — status colors, not decoration. Deliberately off-hue from
+     sage so they read as signals, not brand accents. */
+  --warning:          #d97706;
+  --urgent:           #d96c6c;
+
   /* Backgrounds */
   --bg-primary:       #f8f4ea;
   --bg-secondary:     #f3edd8;
