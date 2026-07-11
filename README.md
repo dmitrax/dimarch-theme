@@ -23,7 +23,7 @@ Inspired by GNOME 2 and MATE. Built on Wayland in 2026.
 | Ghostty | 🚧 in progress |
 | rofi | 🚧 in progress |
 | hyprlock | 🚧 in progress |
-| mako | 🚧 in progress |
+| swaync | 🚧 in progress |
 | GTK theme | 📋 planned |
 | SDDM | 📋 planned |
 | Telegram | 📋 planned |
