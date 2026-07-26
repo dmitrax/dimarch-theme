@@ -1,0 +1,442 @@
+#!/usr/bin/env python3
+"""
+palette — read the DimArch Sage colour system from its source of truth.
+
+Two files back everything here:
+  colors/palette.json     what colours exist and what they mean
+  colors/components.json  which key of which config takes which role
+
+Both are data, not code. This tool only resolves and reports; it never edits
+either file, and it never guesses a colour that is not written down.
+"""
+
+import json
+import os
+import re
+import sys
+
+HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PALETTE = os.path.join(HERE, "colors", "palette.json")
+COMPONENTS = os.path.join(HERE, "colors", "components.json")
+
+# ── terminal helpers ──────────────────────────────────────────────────────
+TTY = sys.stdout.isatty()
+
+
+def sgr(code, text):
+    return f"\033[{code}m{text}\033[0m" if TTY else text
+
+
+def dim(t):
+    return sgr("2", t)
+
+
+def bold(t):
+    return sgr("1", t)
+
+
+def swatch(rgba):
+    """A block painted in the colour itself, so values are checkable by eye."""
+    if not TTY or not rgba:
+        return "    "
+    r, g, b, a = rgba
+    if a < 1.0:  # composite over the chrome ground so alpha reads honestly
+        br, bg, bb = 13, 25, 25
+        r = round(r * a + br * (1 - a))
+        g = round(g * a + bg * (1 - a))
+        b = round(b * a + bb * (1 - a))
+    return f"\033[48;2;{r};{g};{b}m    \033[0m"
+
+
+def die(msg, code=1):
+    print(f"palette: {msg}", file=sys.stderr)
+    sys.exit(code)
+
+
+# ── colour notation ───────────────────────────────────────────────────────
+def canon(value):
+    """Any notation this project uses -> (r, g, b, alpha). None if not a colour.
+
+    Handles: #rrggbb, rrggbb, 0xAARRGGBB, rgba(r,g,b,a), rgba( r, g, b, N % ),
+    and hyprlang's rgba(rrggbbaa).
+    """
+    if not isinstance(value, str):
+        return None
+    v = value.strip()
+
+    m = re.match(r"rgba?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*"
+                 r"(?:,\s*([\d.]+)\s*(%?))?\s*\)", v)
+    if m:
+        r, g, b = (int(x) for x in m.groups()[:3])
+        a = m.group(4)
+        if a is None:
+            a = 1.0
+        else:
+            a = float(a) / 100 if m.group(5) == "%" else float(a)
+        return (r, g, b, round(a, 3))
+
+    m = re.fullmatch(r"rgba?\(([0-9a-fA-F]{8})\)", v)          # hyprlang
+    if m:
+        h = m.group(1)
+        return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4)) + \
+               (round(int(h[6:8], 16) / 255, 3),)
+
+    m = re.fullmatch(r"rgba?\(([0-9a-fA-F]{6})\)", v)
+    if m:
+        h = m.group(1)
+        return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4)) + (1.0,)
+
+    m = re.fullmatch(r"0x([0-9a-fA-F]{8})", v)                 # ARGB, swayimg
+    if m:
+        h = m.group(1)
+        return tuple(int(h[i:i + 2], 16) for i in (2, 4, 6)) + \
+               (round(int(h[0:2], 16) / 255, 3),)
+
+    m = re.fullmatch(r"#?([0-9a-fA-F]{6})", v)
+    if m:
+        h = m.group(1)
+        return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4)) + (1.0,)
+
+    return None
+
+
+def fmt(rgba):
+    if not rgba:
+        return "—"
+    r, g, b, a = rgba
+    hexv = f"#{r:02x}{g:02x}{b:02x}"
+    return hexv if a == 1.0 else f"{hexv} @{a}"
+
+
+def contrast(c1, c2):
+    def lin(c):
+        c /= 255
+        return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+
+    def lum(c):
+        return .2126 * lin(c[0]) + .7152 * lin(c[1]) + .0722 * lin(c[2])
+    a, b = lum(c1), lum(c2)
+    if a < b:
+        a, b = b, a
+    return (a + .05) / (b + .05)
+
+
+# ── data ──────────────────────────────────────────────────────────────────
+def load():
+    try:
+        with open(PALETTE) as f:
+            p = json.load(f)
+        with open(COMPONENTS) as f:
+            c = json.load(f)
+    except FileNotFoundError as e:
+        die(f"{e.filename} not found — run from a dimarch-theme checkout")
+    except json.JSONDecodeError as e:
+        die(f"invalid JSON: {e}")
+    return p, c
+
+
+def resolve(palette, path, depth=0):
+    """Role path -> (r,g,b,a). Follows role->role chains and an @alpha suffix."""
+    if depth > 8:
+        return None
+    alpha = None
+    if "@" in path:
+        path, a = path.split("@", 1)
+        try:
+            alpha = float(a)
+        except ValueError:
+            return None
+
+    direct = canon(path)
+    if direct:
+        return direct[:3] + (alpha,) if alpha is not None else direct
+
+    node = palette
+    for part in path.split("."):
+        if not isinstance(node, dict) or part not in node:
+            return None
+        node = node[part]
+    if not isinstance(node, str):
+        return None
+
+    got = canon(node)
+    if got is None:
+        got = resolve(palette, node, depth + 1)
+    if got is None:
+        return None
+    return got[:3] + (alpha,) if alpha is not None else got
+
+
+def index(palette):
+    """(r,g,b,a) -> [role paths], plus rgb-only for alpha-variant lookups."""
+    full, base = {}, {}
+
+    def walk(node, path=""):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                if k.startswith("_"):
+                    continue
+                walk(v, f"{path}.{k}" if path else k)
+        elif isinstance(node, str):
+            c = canon(node)
+            if c:
+                full.setdefault(c, []).append(path)
+                base.setdefault(c[:3], []).append(path)
+    walk(palette)
+    return full, base
+
+
+def components(cmap):
+    return [k for k in cmap if not k.startswith("_")]
+
+
+# ── commands ──────────────────────────────────────────────────────────────
+def cmd_role(args):
+    if not args:
+        die("usage: palette role <path>   e.g. role file.archive")
+    p, _ = load()
+    for path in args:
+        full = path if "." in path else None
+        if full is None:
+            die(f"'{path}' is not a role path — try `palette list roles`")
+        got = resolve(p, path)
+        if got is None:
+            # try role.<path> as a convenience
+            got = resolve(p, f"role.{path}")
+            if got is not None:
+                path = f"role.{path}"
+        if got is None:
+            print(f"{swatch(None)}  {path:<34}{dim('no such role')}")
+        else:
+            print(f"{swatch(got)}  {path:<34}{fmt(got)}")
+
+
+def cmd_component(args):
+    p, c = load()
+    if not args:
+        die(f"usage: palette component <name>\n  known: {', '.join(components(c))}")
+    name = args[0]
+    if name not in c:
+        die(f"unknown component '{name}'\n  known: {', '.join(components(c))}")
+    d = c[name]
+    print(bold(name), dim(f"— {d.get('_file','?')}  [{d.get('_status','?')}]"))
+    if d.get("_findings"):
+        print()
+        for line in d["_findings"]:
+            print(dim("  " + line))
+    print()
+    for k, role in d.get("keys", {}).items():
+        got = resolve(p, role)
+        print(f"{swatch(got)}  {k:<34}{dim(role):<44}{fmt(got)}")
+    for gap in d.get("_gaps", []):
+        print(f"{'':6}{sgr('33', 'gap')}  {gap}")
+
+
+def cmd_where(args):
+    if not args:
+        die("usage: palette where <role>   e.g. where ramp.clay.base")
+    p, c = load()
+    needle = args[0]
+    hits = []
+    for name in components(c):
+        for k, role in c[name].get("keys", {}).items():
+            if role == needle or role.startswith(needle + "@"):
+                hits.append((name, k, role))
+    got = resolve(p, needle)
+    print(f"{swatch(got)}  {bold(needle)}  {fmt(got)}\n")
+    if not hits:
+        print(dim("  used by no mapped component"))
+        return
+    for name, k, role in hits:
+        suffix = dim(f"  ({role})") if role != needle else ""
+        print(f"  {name:<12}{k}{suffix}")
+    print(dim(f"\n  {len(hits)} use(s) — these change if the role changes"))
+
+
+def cmd_ramp(args):
+    p, _ = load()
+    fams = args or [k for k in p.get("ramp", {}) if not k.startswith("_")]
+    ground = canon(p["surface"]["chrome"]["panel"])
+    for fam in fams:
+        node = p.get("ramp", {}).get(fam)
+        if not isinstance(node, dict):
+            print(dim(f"  no such family: {fam}"))
+            continue
+        hue = node.get("_hue")
+        print(bold(fam) + (dim(f"  {hue}°") if hue else ""))
+        for tier, val in node.items():
+            if tier.startswith("_"):
+                continue
+            got = canon(val)
+            ratio = contrast(got, ground) if got else 0
+            flag = "" if ratio >= 4.5 else dim("  below AA for text")
+            print(f"{swatch(got)}  {tier:<10}{fmt(got):<12}{ratio:5.2f}{flag}")
+        print()
+
+
+def cmd_list(args):
+    p, c = load()
+    what = args[0] if args else "components"
+    if what.startswith("comp"):
+        for name in components(c):
+            d = c[name]
+            n = len(d.get("keys", {}))
+            gaps = len(d.get("_gaps", []))
+            g = sgr("33", f"  {gaps} gap(s)") if gaps else ""
+            print(f"  {name:<12}{n:>4} keys  {dim(d.get('_status',''))}{g}")
+    elif what.startswith("role"):
+        for grp, items in p.get("role", {}).items():
+            if grp.startswith("_") or not isinstance(items, dict):
+                continue
+            for k, v in items.items():
+                if k.startswith("_"):
+                    continue
+                got = resolve(p, v)
+                print(f"{swatch(got)}  {grp}.{k:<22}{dim(v):<40}{fmt(got)}")
+    else:
+        die("usage: palette list [components|roles]")
+
+
+VALUE = r'(rgba?\s*\([^)]*\)|#[0-9a-fA-F]{6}|0x[0-9a-fA-F]{8}|[0-9a-fA-F]{6}\b)'
+
+# One extractor per config syntax. A single generic pattern silently missed
+# `@define-color name value;` — it has no `:` or `=` — and a linter that
+# passes quietly is worse than no linter, so each format states its own shape.
+EXTRACT = {
+    "css": [r'@define-color\s+KEY\s+' + VALUE,
+            r'--KEY\s*:\s*' + VALUE],
+    "toml": [r'^\s*KEY\s*=\s*"' + VALUE,
+             r'\bKEY\s*=\s*\{[^}]*?fg\s*=\s*"' + VALUE],
+    "ghostty": [r'^\s*KEY\s*=\s*' + VALUE],
+    "rasi": [r'^\s*KEY\s*:\s*' + VALUE],
+    "zathurarc": [r'^\s*set\s+KEY\s+"' + VALUE],
+}
+
+
+def toml_section(text, section):
+    """Text of one [section], so a key is not matched in a different table.
+
+    yazi declares `active` in both [tabs] and [pick]; searching the whole file
+    silently returns whichever comes first.
+    """
+    m = re.search(rf"^\[{re.escape(section)}\]\s*$", text, re.M)
+    if not m:
+        return None
+    rest = text[m.end():]
+    nxt = re.search(r"^\[", rest, re.M)
+    return rest[:nxt.start()] if nxt else rest
+
+
+def find_value(text, key, fmt):
+    """Locate a key's literal in a config. Returns (rgba, raw) or (None, None)."""
+    leaf = key.split(".")[-1].split("[")[0]
+
+    if fmt == "ghostty" and key.startswith("palette."):
+        slot = key.split(".")[1]
+        m = re.search(rf"^palette\s*=\s*{slot}=" + VALUE, text, re.M)
+        return (canon(m.group(1)), m.group(1)) if m else (None, None)
+
+    # yazi addresses some rules by pattern rather than by name
+    m = re.fullmatch(r"filetype\[(.+?)(?:/(orphan|exec|dummy))?\]", key)
+    if m:
+        pat, is_ = m.group(1), m.group(2)
+        cond = rf',\s*is\s*=\s*"{is_}"' if is_ else ""
+        rx = (rf'(?:mime|url)\s*=\s*"{re.escape(pat)}"{cond}\s*,\s*fg\s*=\s*"' + VALUE)
+        mm = re.search(rx, text)
+        return (canon(mm.group(1)), mm.group(1)) if mm else (None, None)
+
+    m = re.fullmatch(r"icon\.conds\[(.+)\]", key)
+    if m:
+        rx = (rf'if\s*=\s*"{re.escape(m.group(1))}"\s*,\s*text\s*=\s*"[^"]*"\s*,\s*fg\s*=\s*"' + VALUE)
+        mm = re.search(rx, text)
+        return (canon(mm.group(1)), mm.group(1)) if mm else (None, None)
+
+    scope = text
+    if fmt == "toml" and "." in key and not key.startswith("filetype"):
+        section = key.rsplit(".", 1)[0]
+        scoped = toml_section(text, section)
+        if scoped is not None:
+            scope = scoped
+
+    for pat in EXTRACT.get(fmt, []):
+        m = re.search(pat.replace("KEY", re.escape(leaf)), scope, re.M)
+        if m:
+            return canon(m.group(1)), m.group(1)
+    return None, None
+
+
+def cmd_check(args):
+    """Verify a repo's configs against the map."""
+    if not args:
+        die("usage: palette check <path-to-dimarch>")
+    root = os.path.abspath(args[0])
+    if not os.path.isdir(root):
+        die(f"not a directory: {root}")
+    p, c = load()
+    problems = checked = unlocatable = 0
+    for name in components(c):
+        d = c[name]
+        rel = d.get("_file")
+        if not rel:
+            continue
+        path = os.path.join(root, rel)
+        if not os.path.exists(path):
+            print(dim(f"  {name}: {rel} not found, skipped"))
+            continue
+        text = open(path, errors="ignore").read()
+        fmt_ = d.get("_format", "")
+        for key, role in d.get("keys", {}).items():
+            want = resolve(p, role)
+            if want is None:
+                continue
+            have, raw = find_value(text, key, fmt_)
+            if have is None:
+                unlocatable += 1
+                continue
+            checked += 1
+            if have[:3] != want[:3]:
+                problems += 1
+                print(f"{swatch(have)}{swatch(want)}  {name}: {bold(key)}")
+                print(f"{'':10}has {fmt(have)}, map says {fmt(want)}  {dim(role)}")
+    print()
+    if unlocatable:
+        # Never let partial coverage read as a clean bill of health.
+        print(dim(f"  {unlocatable} key(s) not locatable by pattern — not verified"))
+    if problems:
+        print(f"  {sgr('31', str(problems))} mismatch(es) across {checked} checked")
+        sys.exit(1)
+    print(dim(f"  {checked} keys checked, all match the map"))
+
+
+USAGE = """palette — DimArch Sage colour system
+
+  palette role <path>          resolve a role to a value
+  palette component <name>     every key of a component, with its role
+  palette where <role>         which components use a role
+  palette ramp [family]        show a hue family with contrast figures
+  palette list [components|roles]
+  palette check <path>         verify a repo's configs against the map
+
+Colours are defined in colors/palette.json and mapped to component keys in
+colors/components.json. This tool never writes to either.
+"""
+
+
+def main():
+    if len(sys.argv) < 2 or sys.argv[1] in ("-h", "--help", "help"):
+        print(USAGE)
+        return
+    cmd, args = sys.argv[1], sys.argv[2:]
+    table = {
+        "role": cmd_role, "component": cmd_component, "comp": cmd_component,
+        "where": cmd_where, "ramp": cmd_ramp, "list": cmd_list,
+        "check": cmd_check,
+    }
+    fn = table.get(cmd)
+    if not fn:
+        die(f"unknown command '{cmd}'\n\n{USAGE}")
+    fn(args)
+
+
+if __name__ == "__main__":
+    main()

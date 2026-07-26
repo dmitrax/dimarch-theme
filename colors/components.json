@@ -21,7 +21,8 @@
     "   actually accepts, which are dead. That knowledge is as easy to lose as a colour.",
     "5. Roles may point at other roles: `role.ui.accent` -> `ramp.sage.bright` -> `#c4ddd2`.",
     "   Resolve RECURSIVELY until a literal (`#rrggbb` or `rgba(...)`), not one hop.",
-    "6. A role may carry an alpha suffix: `surface.chrome.panel@0.78` means take that    role's rgb and apply 0.78. Levels of transparency are per-use, not per-token."
+    "6. A role may carry an alpha suffix: `surface.chrome.panel@0.78` means take that    role's rgb and apply 0.78. Levels of transparency are per-use, not per-token.",
+    "7. When extracting keys from a config, make whitespace flexible in the pattern.    Nine icon.conds entries were silently lost on the first backfill because the    pattern assumed single spaces and the file is column-aligned. A map that is    quietly incomplete reports full coverage — the worst failure mode here."
   ],
   "_status_values": {
     "migrated": "keys resolved from the palette, verified live",
@@ -277,7 +278,16 @@
       "git.updated": "ramp.patina.bright",
       "icon.conds[orphan]": "ramp.clay.base",
       "icon.conds[sticky]": "neutral.muted",
-      "icon.conds[dir & hovered]": "ramp.sage.bright"
+      "icon.conds[dir & hovered]": "ramp.sage.bright",
+      "icon.conds[link]": "ramp.patina.base",
+      "icon.conds[block]": "neutral.muted",
+      "icon.conds[char]": "neutral.muted",
+      "icon.conds[fifo]": "neutral.muted",
+      "icon.conds[sock]": "neutral.muted",
+      "icon.conds[dummy]": "ramp.clay.base",
+      "icon.conds[dir]": "ramp.sage.base",
+      "icon.conds[exec]": "ramp.lichen.base",
+      "icon.conds[!dir]": "neutral.secondary"
     },
     "_findings": [
       "Default icon colours are compiled into the yazi binary; a theme that never",
