@@ -15,7 +15,9 @@ import os
 import re
 import sys
 
-HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# realpath, not abspath: this is normally reached through a symlink in ~/.local/bin,
+# and abspath would resolve to that directory instead of the checkout.
+HERE = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 PALETTE = os.path.join(HERE, "colors", "palette.json")
 COMPONENTS = os.path.join(HERE, "colors", "components.json")
 
