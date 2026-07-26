@@ -312,6 +312,11 @@ EXTRACT = {
     "ghostty": [r'^\s*KEY\s*=\s*' + VALUE],
     "rasi": [r'^\s*KEY\s*:\s*' + VALUE],
     "zathurarc": [r'^\s*set\s+KEY\s+"' + VALUE],
+    "mpv": [r'^\s*KEY\s*=\s*"?' + VALUE],
+    "hyprlang": [r'^\s*KEY\s*=\s*' + VALUE],
+    "lua": [r'^\s*local\s+KEY\s*=\s*' + VALUE],
+    # uosc packs every colour into one comma-delimited `color=` line
+    "uosc": [r'\bKEY\s*=\s*' + VALUE],
 }
 
 
@@ -352,6 +357,22 @@ def find_value(text, key, fmt):
         rx = (rf'if\s*=\s*"{re.escape(m.group(1))}"\s*,\s*text\s*=\s*"[^"]*"\s*,\s*fg\s*=\s*"' + VALUE)
         mm = re.search(rx, text)
         return (canon(mm.group(1)), mm.group(1)) if mm else (None, None)
+
+    # Some CSS is addressed by selector rather than by token name — swayosd sets
+    # colours on rules like `window#osd label`, not on @define-color entries.
+    CSS_PROPS = ("color", "background", "background-color", "border-color")
+    if fmt == "css" and "." in key and key.rsplit(".", 1)[1] in CSS_PROPS:
+        sel, prop = key.rsplit(".", 1)
+        for m in re.finditer(r"([^{}]+)\{([^}]*)\}", text):
+            selector, body = m.group(1).strip(), m.group(2)
+            # selectors are comma-separated and often span lines
+            parts = [s.strip() for s in selector.split(",")]
+            if not any(re.search(rf"(^|[\s#.]){re.escape(sel)}$", s) for s in parts):
+                continue
+            v = re.search(rf"^\s*{re.escape(prop)}\s*:\s*" + VALUE, body, re.M)
+            if v:
+                return canon(v.group(1)), v.group(1)
+        return (None, None)
 
     scope = text
     if fmt == "toml" and "." in key and not key.startswith("filetype"):

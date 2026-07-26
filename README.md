@@ -1,11 +1,44 @@
 # dimarch-theme
 
-> Sage — visual identity for DimArch OS
+> Sage — the colour system behind DimArch OS
 
 **Modern system. Old soul.**
 
-Theme components for DimArch OS — Arch Linux + Hyprland.
+Visual identity for DimArch OS — Arch Linux + Hyprland.
 Inspired by GNOME 2 and MATE. Built on Wayland in 2026.
+
+---
+
+## What this repository is
+
+**A source of truth and the tools to work with it — not something you install.**
+
+Colours are *defined* here and *shipped* by
+[dmitrax/dimarch](https://github.com/dmitrax/dimarch), whose configs carry literal
+values. A fresh machine clones that repository, runs its installer, and ends up
+correctly themed without this one being present at all.
+
+You need this repository when you **change** the theme: adjust a colour, add a
+component, check that nothing has drifted. Not at install time.
+
+```
+dimarch-theme          decides what the colours are        ← design time
+    │
+    │  values are written into configs
+    ▼
+dimarch                ships them to the machine           ← install time
+```
+
+It is also the entry point for anything that is not a dotfile — other projects read
+the CSS token files directly rather than reinventing the palette.
+
+| | |
+|---|---|
+| [`colors/palette.json`](colors/palette.json) | what colours exist and what they mean |
+| [`colors/components.json`](colors/components.json) | which key of which config takes which role |
+| [`colors/sage-dark.css`](colors/sage-dark.css) · [`sage-light.css`](colors/sage-light.css) | the same tokens as CSS, for consumers that can read them |
+| [`tools/palette`](tools/palette) | resolve, inspect and verify — see below |
+| [`ROADMAP.md`](ROADMAP.md) | component migration checklist |
 
 ---
 
@@ -73,19 +106,41 @@ and verified against the darker of the two light surfaces.
 
 ---
 
-## Colour tokens
+## How it is organised
 
-`colors/palette.json` is the source of truth. It has two layers — `ramp` holds the hue
-families, `role` maps meaning onto them. **Components reference roles, never ramp
-entries.** That indirection is the point: to merge `link` into the brand green you would
-first have to answer whether links should be indistinguishable from body text.
+Two layers. `ramp` holds the hue families; `role` maps meaning onto them.
+**Components reference roles, never ramp entries.** That indirection is the point: to
+merge `link` into the brand green you would first have to answer whether links should
+be indistinguishable from body text. A token named by its hue has no such defence —
+before this rule existed, every non-green accent had quietly been washed into sage.
 
-| File | Description |
-|---|---|
-| [`colors/palette.json`](colors/palette.json) | Source of truth — 22 ramp tokens, 63 roles, ANSI 16 |
-| [`colors/sage-dark.css`](colors/sage-dark.css) | CSS custom properties + GTK3 `@define-color` fallback |
-| [`colors/sage-light.css`](colors/sage-light.css) | Light variant — recalculated, not inverted |
-| [`ROADMAP.md`](ROADMAP.md) | Component migration checklist |
+A third file closes the loop. `components.json` records which key of which config takes
+which role, so the question that comes first when opening a config — *what do I take,
+and where does it go?* — is a lookup rather than a guess. A component counts as
+migrated only once it is listed there, and the map also carries what was learned about
+the component itself: which keys it actually accepts, which are inert.
+
+## Using it
+
+```bash
+ln -s "$PWD/tools/palette" ~/.local/bin/palette
+```
+
+```bash
+palette check ~/Projects/dimarch   # do the configs still match the palette?
+palette component waybar           # what does this component take, and why
+palette where ramp.clay.base       # what breaks if this role changes
+palette role file.archive          # resolve one value
+palette ramp sage                  # a hue family with contrast figures
+```
+
+`check` verifies 179 keys across six colour notations and exits non-zero on a
+mismatch, so it works from a hook or CI. `dimarch` runs it from a pre-commit hook that
+reports without blocking — components are still being migrated, and a hook that has to
+be bypassed daily ends up disabled.
+
+Values print with a swatch painted in the colour itself, composited over the chrome
+ground when they carry alpha, so a wrong value is visible rather than merely readable.
 
 ### ANSI 16
 

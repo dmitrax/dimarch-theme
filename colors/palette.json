@@ -5,8 +5,10 @@
   "_updated": "2026-07-26",
 
   "_structure": [
-    "Two layers. `ramp` holds hue families — the raw material, named after materials, not hues.",
-    "`role` maps meaning onto them; components reference ROLES, never ramp entries directly.",
+    "Three files. THIS one holds `ramp` (hue families, named after materials) and `role`",
+    "(meaning mapped onto them); components reference ROLES, never ramp entries directly.",
+    "`components.json` closes the loop: which key of which config takes which role.",
+    "`sage-dark.css` / `sage-light.css` mirror the same tokens for consumers that read CSS.",
     "That indirection is the point: a token named `link` cannot be quietly 'unified' into sage",
     "without first answering whether links should be indistinguishable from body text.",
     "v1 of this file described VSCode and Obsidian only, while the real system theme lived",
@@ -15,9 +17,9 @@
 
   "_hierarchy": [
     "Sage is NOT one of six equal families. It is the brand, and it dominates:",
-    "  · ~18% of screen area (all chrome and terminal text) vs ~4% for all five accents combined",
+    "  · ~18% of screen area (all chrome and terminal text) vs ~4% for every accent combined",
     "  · loudest tier in the palette — sage.bright 12.49:1, nearest accent 9.9:1",
-    "  · seven tiers where accents have three, because only sage carries a text hierarchy",
+    "  · eight tiers where accents have three, because only sage carries a text hierarchy",
     "THE RULE THAT PROTECTS THIS:",
     "  sage    = STATE of the interface — active, selected, hover, focus, success, all text",
     "  accents = CATEGORY of content   — file type, language, git status, kind of signal",
@@ -93,7 +95,12 @@
   },
 
   "ramp": {
-    "_note": "Named after materials — charcoal stone, clay, ochre, lichen, sage, patina, heather.",
+    "_note": [
+      "Named after materials: sage, clay, ochre, lichen, patina, heather — plus two",
+      "families that are not accents. `stone` recedes (neutral with a sage bias, for",
+      "text that must step back without going cold). `sage_deep` is brand ornament,",
+      "below the text range entirely — the logo gradient and low tints."
+    ],
 
     "sage": {
       "_role": [

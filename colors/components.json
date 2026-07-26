@@ -324,9 +324,102 @@
     }
   },
   "_pending_components": [
-    "swayosd, uosc, swayimg, mpv, hyprlock, hypr (colors.lua), screenshot.sh — few keys",
-    "each, all already migrated in config; map them when next touched.",
+    "hypr (colors.lua window borders), screenshot.sh (slurp selection) — one or two",
+    "values each, mapped when next touched.",
     "vscode, obsidian — NOT migrated (ROADMAP 3.3). vscode has 15 values outside the",
-    "palette, obsidian has the link-contrast bug (2.74:1)."
-  ]
+    "palette; obsidian carries the link-contrast bug (2.74:1)."
+  ],
+  "uosc": {
+    "_file": "dotfiles/mpv/.config/mpv/script-opts/uosc.conf",
+    "_format": "uosc",
+    "_status": "migrated",
+    "_findings": [
+      "All six colours live in ONE comma-delimited `color=` line — they cannot be",
+      "edited individually, only by rewriting the whole line.",
+      "Values are bare rrggbb without a leading #.",
+      "Option names verified against upstream's own default uosc.conf, not guessed."
+    ],
+    "keys": {
+      "color.foreground": "role.ui.brand",
+      "color.foreground_text": "surface.terminal.bg",
+      "color.background": "surface.terminal.bg",
+      "color.background_text": "neutral.primary",
+      "color.window_border": "surface.terminal.bg",
+      "color.curtain": "surface.terminal.bg"
+    }
+  },
+  "mpv": {
+    "_file": "dotfiles/mpv/.config/mpv/mpv.conf",
+    "_format": "mpv",
+    "_status": "migrated",
+    "_findings": [
+      "border-color is a text OUTLINE for legibility over arbitrary video, not a",
+      "panel background — it tracks the surface tone only so the three mpv-related",
+      "files stay on one value.",
+      "The built-in OSC is disabled in favour of uosc; its own colour options were",
+      "confirmed not to apply to most bottombar elements in this mpv version."
+    ],
+    "keys": {
+      "osd-color": "neutral.primary",
+      "osd-border-color": "surface.terminal.bg",
+      "sub-color": "neutral.primary",
+      "sub-border-color": "surface.terminal.bg"
+    }
+  },
+  "swayimg": {
+    "_file": "dotfiles/swayimg/.config/swayimg/init.lua",
+    "_format": "lua",
+    "_status": "migrated",
+    "_findings": [
+      "Values are ARGB (0xAARRGGBB), alpha FIRST — unlike every other config here.",
+      "Belongs to the terminal surface family, not to chrome: it draws opaque panels",
+      "over arbitrary images. An older comment credited waybar, which was wrong.",
+      "Palette is already hoisted into locals at the top, so this is the one component",
+      "that could consume a shared module directly via require()."
+    ],
+    "keys": {
+      "bg": "surface.terminal.bg",
+      "bg_card": "surface.terminal.lift",
+      "bg_panel": "surface.terminal.bg@0.8",
+      "text_main": "neutral.primary",
+      "accent": "role.ui.brand",
+      "accent_bg": "surface.chrome.active"
+    }
+  },
+  "swayosd": {
+    "_file": "dotfiles/swayosd/.config/swayosd/style.css",
+    "_format": "css",
+    "_status": "migrated",
+    "_findings": [
+      "GTK3, so @define-color works here — unlike swaync, which is GTK4 and reads",
+      ":root custom properties. One shared CSS file cannot serve both.",
+      "Icon and label deliberately share one colour, matching upstream's own pattern."
+    ],
+    "keys": {
+      "window#osd.background": "surface.chrome.panel@0.85",
+      "image.color": "role.ui.accent",
+      "label.color": "role.ui.accent",
+      "progress.background": "role.ui.accent"
+    }
+  },
+  "hyprlock": {
+    "_file": "dotfiles/hypr/.config/hypr/hyprlock.conf",
+    "_format": "hyprlang",
+    "_status": "partial",
+    "_findings": [
+      "hyprlang notation is rgba(rrggbbaa) — alpha LAST, inside the parentheses.",
+      "`#` inside a Pango span must be escaped as `##`.",
+      "Text is deliberately white, not sage: it renders over arbitrary wallpaper where",
+      "white stays legible. Revisit only with a live look."
+    ],
+    "keys": {
+      "check_color": "role.status.success",
+      "fail_color": "semantic.urgent"
+    },
+    "_gaps": [
+      "Clock, date and the password field are plain white with varying alpha —",
+      "  intentional for now, see _findings. Not mapped because no role should claim",
+      "  them until that decision is revisited."
+    ]
+  }
 }
