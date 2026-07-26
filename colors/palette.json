@@ -107,6 +107,24 @@
       "bright": "#c4ddd2"
     },
 
+    "sage_deep": {
+      "_role": [
+        "Deep sage below the text range — brand ornament, not an interface token.",
+        "The logo's radial gradient and the low tint behind starship's clock. All sit",
+        "on the sage hue (153°); they are brand derivatives, not foreign colours, and",
+        "are listed so no value in the system lives outside this file.",
+        "Not for text: these are far below any contrast threshold by design."
+      ],
+      "tint":       "#2d4a40",
+      "logo_core":  "#3c7059",
+      "logo_mid":   "#224334",
+      "logo_edge":  "#10221a",
+      "logo_hover_core": "#4a8b6e",
+      "logo_hover_mid":  "#2c5a45",
+      "logo_hover_edge": "#142c22",
+      "mark":       "#b0d2c3"
+    },
+
     "clay": {
       "_role": "SEMANTIC ONLY — negative states. Never decorative. clay.base IS `urgent`.",
       "_hue": 0,
@@ -216,10 +234,20 @@
       "_use": "Opaque — ghostty and everything rendered inside it (yazi, starship, uosc, swayimg)",
       "bg":        "#171b1b",
       "lift":      "#1d2121",
+      "raised":    "#172626",
+      "border":    "#324040",
+      "_raised_note": "Input/status strips inside terminal apps (zathura). Was #172026 — hue 204.",
       "fg":        "#edeae4",
       "cursor":    "#7fb89e",
       "selection": "#3f7a63",
       "on_accent": "#12141a",
+      "_border_note": [
+        "Separators and table rules inside terminal apps (yazi panes, status bars).",
+        "Was #3a3a4a — hue 240, inside the cold band the palette rejects. Moved to 180",
+        "at the same lightness and saturation; contrast to the terminal ground goes",
+        "1.56 -> 1.61, so borders stay exactly as visible as before.",
+        "Deliberately low: a divider must be seen without competing with text."
+      ],
       "_on_accent_note": "Dark text drawn ON sage/ochre fills — a foreground role, not a background."
     },
 
