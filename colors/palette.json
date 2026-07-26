@@ -134,6 +134,8 @@
     "clay": {
       "_role": "SEMANTIC ONLY — negative states. Never decorative. clay.base IS `urgent`.",
       "_hue": 0,
+      "tint":   "#2c1818",
+      "_tint_note": "Fill behind an error message — rofi's error-message background. Was #2c181c at hue 348; brought to 0. clay.base on it gives 5.05, neutral.primary 13.98.",
       "dim":    "#ac4242",
       "base":   "#d96c6c",
       "bright": "#e49393"
@@ -243,11 +245,15 @@
       "panel_bottom": "#131316",
       "bottom_alpha": 0.75,
       "glass_dark":   "#091313",
+      "raised":       "#172525",
+      "_raised_note": "Input fields on glass — rofi's bg-input. Distinct from surface.terminal.raised: same lightness by coincidence, different base underneath.",
       "module":       "rgba(255, 255, 255, 0.05)",
       "hover":        "rgba(255, 255, 255, 0.08)",
       "active":       "rgba(127, 184, 158, 0.20)",
       "active_border":"rgba(127, 184, 158, 0.35)",
       "border":       "rgba(255, 255, 255, 0.07)",
+      "hover_strong": "rgba(255, 255, 255, 0.16)",
+      "border_outer": "rgba(0, 0, 0, 0.42)",
       "border_module":"rgba(255, 255, 255, 0.05)",
       "_alpha_note": "rofi 0.72 · waybar 0.78 · swayosd 0.85 · swaync noti 0.85 / cc 0.90"
     },
@@ -285,6 +291,7 @@
         "alt":    "#f3edd8",
         "border": "#e8e1cc",
         "text":   "#2d3a2e",
+        "selection":  "#bfe0d2",
         "text_muted": "#5a6b5c",
         "comment":    "#716868",
         "structural": "#f7f5f0"

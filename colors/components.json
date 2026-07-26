@@ -20,12 +20,40 @@
     "4. `_findings` holds what was learned about the component itself — which keys it",
     "   actually accepts, which are dead. That knowledge is as easy to lose as a colour.",
     "5. Roles may point at other roles: `role.ui.accent` -> `ramp.sage.bright` -> `#c4ddd2`.",
-    "   Resolve RECURSIVELY until a literal (`#rrggbb` or `rgba(...)`), not one hop."
+    "   Resolve RECURSIVELY until a literal (`#rrggbb` or `rgba(...)`), not one hop.",
+    "6. A role may carry an alpha suffix: `surface.chrome.panel@0.78` means take that    role's rgb and apply 0.78. Levels of transparency are per-use, not per-token."
   ],
   "_status_values": {
     "migrated": "keys resolved from the palette, verified live",
     "pending": "map drafted, values not yet applied",
     "partial": "some keys migrated, gaps remain"
+  },
+  "ghostty": {
+    "_file": "dotfiles/ghostty/.config/ghostty/config.ghostty",
+    "_format": "ghostty",
+    "_status": "migrated",
+    "keys": {
+      "palette.0": "neutral.black",
+      "palette.1": "ramp.clay.base",
+      "palette.2": "ramp.sage.base",
+      "palette.3": "ramp.ochre.base",
+      "palette.4": "ramp.lichen.base",
+      "palette.5": "ramp.heather.base",
+      "palette.6": "ramp.patina.base",
+      "palette.7": "neutral.secondary",
+      "palette.8": "neutral.muted",
+      "palette.9": "ramp.clay.bright",
+      "palette.10": "ramp.sage.bright",
+      "palette.11": "ramp.ochre.bright",
+      "palette.12": "ramp.lichen.bright",
+      "palette.13": "ramp.heather.bright",
+      "palette.14": "ramp.patina.bright",
+      "palette.15": "neutral.primary"
+    },
+    "_findings": [
+      "ANSI 16 maps 1:1 onto palette.json `ansi`. Slot 4 is lichen, not a blue:",
+      "blue and green previously shared hue 152/153, two slots carrying one colour."
+    ]
   },
   "herdr": {
     "_file": "dotfiles/herdr/.config/herdr/config.toml",
@@ -78,9 +106,217 @@
     ],
     "_verified": "2026-07-26 — herdr config check: ok, live"
   },
+  "rofi": {
+    "_file": "dotfiles/rofi/.config/rofi/theme.rasi",
+    "_format": "rasi",
+    "_status": "migrated",
+    "keys": {
+      "bg": "surface.chrome.panel@0.72",
+      "bg-input": "surface.chrome.raised@0.82",
+      "text": "ramp.sage.bright",
+      "text-secondary": "ramp.sage.soft",
+      "text-muted": "ramp.sage.muted",
+      "accent": "ramp.sage.bright",
+      "accent-soft": "surface.chrome.active",
+      "accent-border": "surface.chrome.active_border",
+      "danger": "ramp.clay.base",
+      "danger-soft": "ramp.clay.base@0.18",
+      "border": "surface.chrome.border",
+      "border-outer": "surface.chrome.border_outer",
+      "border-color": "surface.chrome.active",
+      "background-color": "ramp.sage.base@0.1"
+    },
+    "_findings": [
+      "Only the `*{}` token block is mapped. Ten literal rgba values remain in the",
+      "rules below, bypassing these tokens — ROADMAP step 3.2.",
+      "`transparent` is rgba(0,0,0,0), a structural value rather than a colour."
+    ]
+  },
+  "starship": {
+    "_file": "dotfiles/starship/.config/starship.toml",
+    "_format": "toml",
+    "_status": "migrated",
+    "keys": {
+      "palettes.dimarch_sage.bg": "surface.terminal.lift",
+      "palettes.dimarch_sage.overlay": "surface.terminal.border",
+      "palettes.dimarch_sage.text": "neutral.primary",
+      "palettes.dimarch_sage.subtext": "neutral.secondary",
+      "palettes.dimarch_sage.muted": "neutral.muted",
+      "palettes.dimarch_sage.sage": "ramp.sage.base",
+      "palettes.dimarch_sage.sage_soft": "ramp.sage.soft",
+      "palettes.dimarch_sage.sage_dim": "ramp.sage_deep.tint",
+      "palettes.dimarch_sage.clay": "ramp.clay.base",
+      "palettes.dimarch_sage.ochre": "ramp.ochre.base",
+      "palettes.dimarch_sage.ochre_br": "ramp.ochre.bright",
+      "palettes.dimarch_sage.lichen": "ramp.lichen.base",
+      "palettes.dimarch_sage.patina": "ramp.patina.bright",
+      "palettes.dimarch_sage.heather": "ramp.heather.base"
+    },
+    "_findings": [
+      "Named palette block; styles reference tokens by name, so only this block",
+      "carries values. Seven tokens were declared-but-unused before 2026-07-26."
+    ]
+  },
+  "swaync": {
+    "_file": "dotfiles/swaync/.config/swaync/style.css",
+    "_format": "css",
+    "_status": "migrated",
+    "keys": {
+      "cc-bg": "surface.chrome.panel@0.9",
+      "noti-border-color": "surface.chrome.border",
+      "noti-bg-darker": "surface.chrome.glass_dark",
+      "noti-bg-hover": "ramp.sage.bright@0.08",
+      "noti-bg-focus": "surface.chrome.active",
+      "noti-close-bg": "surface.chrome.hover",
+      "noti-close-bg-hover": "surface.chrome.hover_strong",
+      "text-color": "ramp.sage.bright",
+      "text-color-disabled": "ramp.sage.bright@0.45",
+      "bg-selected": "ramp.sage.bright"
+    },
+    "_findings": [
+      "cssPriority=user replaces the shipped stylesheet wholesale, so the structural",
+      "ruleset is a copy of upstream and only :root is ours. @define-color below",
+      "duplicates :root for older GTK — both must move together."
+    ]
+  },
+  "waybar": {
+    "_file": "dotfiles/waybar/.config/waybar/style.css",
+    "_format": "css",
+    "_status": "migrated",
+    "keys": {
+      "bg_panel": "surface.chrome.panel@0.78",
+      "bg_panel_bottom": "surface.chrome.panel_bottom@0.75",
+      "bg_module": "surface.chrome.module",
+      "bg_hover": "surface.chrome.hover",
+      "bg_active": "surface.chrome.active",
+      "text_main": "ramp.sage.bright",
+      "text_soft": "ramp.sage.soft",
+      "text_muted": "ramp.sage.muted",
+      "text_faded": "ramp.sage.dim",
+      "text_neutral": "neutral.primary",
+      "accent": "ramp.sage.bright",
+      "accent_dark": "ramp.sage.deep",
+      "urgent": "ramp.clay.base",
+      "warning": "semantic.warning",
+      "border_soft": "surface.chrome.border",
+      "border_module": "surface.chrome.module"
+    },
+    "_findings": [
+      "Only @define-color is mapped. Module-level accents are still literal in the",
+      "rules below — ROADMAP step 3.2. bg_panel_bottom is consumed by nothing:",
+      "there is no bottom Waybar, that role belongs to dimarch-taskbar."
+    ]
+  },
+  "yazi": {
+    "_file": "dotfiles/yazi/.config/yazi/theme.toml",
+    "_format": "toml",
+    "_status": "migrated",
+    "keys": {
+      "mgr.cwd": "ramp.sage.base",
+      "mgr.find_keyword": "ramp.ochre.bright",
+      "mgr.find_position": "ramp.sage.bright",
+      "mgr.symlink_target": "ramp.patina.base",
+      "mgr.marker_copied": "ramp.patina.bright",
+      "mgr.marker_cut": "ramp.clay.bright",
+      "mgr.marker_marked": "ramp.heather.bright",
+      "mgr.marker_selected": "ramp.ochre.bright",
+      "mgr.count_copied": "surface.terminal.on_accent",
+      "mgr.count_cut": "neutral.primary",
+      "mgr.count_selected": "surface.terminal.on_accent",
+      "mgr.border_style": "surface.terminal.border",
+      "tabs.active": "surface.terminal.on_accent",
+      "tabs.inactive": "neutral.muted",
+      "mode.normal_main": "surface.terminal.on_accent",
+      "mode.normal_alt": "ramp.sage.base",
+      "mode.select_main": "surface.terminal.on_accent",
+      "mode.select_alt": "ramp.ochre.base",
+      "mode.unset_main": "neutral.primary",
+      "mode.unset_alt": "ramp.clay.base",
+      "status.perm_sep": "surface.terminal.border",
+      "status.perm_type": "ramp.sage.base",
+      "status.perm_read": "ramp.ochre.bright",
+      "status.perm_write": "ramp.clay.bright",
+      "status.perm_exec": "ramp.lichen.base",
+      "status.progress_normal": "ramp.sage.base",
+      "status.progress_error": "neutral.primary",
+      "which.cand": "ramp.patina.bright",
+      "which.rest": "neutral.muted",
+      "which.desc": "ramp.sage.soft",
+      "which.separator_style": "neutral.muted",
+      "confirm.border": "ramp.sage.base",
+      "confirm.title": "ramp.sage.base",
+      "confirm.btn_yes": "surface.terminal.on_accent",
+      "confirm.btn_no": "neutral.muted",
+      "spot.border": "ramp.sage.base",
+      "spot.title": "ramp.sage.base",
+      "spot.tbl_col": "ramp.patina.base",
+      "spot.tbl_cell": "surface.terminal.on_accent",
+      "notify.title_info": "ramp.sage.base",
+      "notify.title_warn": "ramp.ochre.base",
+      "notify.title_error": "ramp.clay.base",
+      "pick.border": "ramp.sage.base",
+      "pick.active": "ramp.sage.bright",
+      "input.border": "ramp.sage.base",
+      "cmp.border": "ramp.sage.base",
+      "tasks.border": "ramp.sage.base",
+      "tasks.hovered": "ramp.sage.bright",
+      "help.border": "ramp.sage.base",
+      "help.chord": "ramp.patina.bright",
+      "filetype[image/*]": "ramp.heather.base",
+      "filetype[video/*]": "ramp.heather.bright",
+      "filetype[audio/*]": "ramp.ochre.bright",
+      "filetype[application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}]": "ramp.ochre.base",
+      "filetype[application/{pdf,doc,rtf}]": "ramp.patina.bright",
+      "filetype[vfs/{absent,stale}]": "neutral.muted",
+      "filetype[*/]": "ramp.sage.base",
+      "git.modified": "ramp.ochre.base",
+      "git.added": "ramp.sage.base",
+      "git.untracked": "ramp.heather.base",
+      "git.ignored": "neutral.muted",
+      "git.deleted": "ramp.clay.base",
+      "git.updated": "ramp.patina.bright",
+      "icon.conds[orphan]": "ramp.clay.base",
+      "icon.conds[sticky]": "neutral.muted",
+      "icon.conds[dir & hovered]": "ramp.sage.bright"
+    },
+    "_findings": [
+      "Default icon colours are compiled into the yazi binary; a theme that never",
+      "declares [icon] inherits them silently. That is why folders stayed blue after",
+      "every colour in this file was already migrated.",
+      "`dirs`/`exts`/`globs` deliberately left on upstream defaults — hundreds of",
+      "per-name icons whose glyphs aid navigation."
+    ]
+  },
+  "zathura": {
+    "_file": "dotfiles/zathura/.config/zathura/zathurarc",
+    "_format": "zathurarc",
+    "_status": "migrated",
+    "keys": {
+      "default-bg": "surface.chrome.panel",
+      "default-fg": "ramp.sage.bright",
+      "statusbar-bg": "surface.terminal.raised",
+      "statusbar-fg": "ramp.sage.bright",
+      "inputbar-bg": "surface.terminal.raised",
+      "inputbar-fg": "ramp.sage.bright",
+      "completion-bg": "surface.terminal.raised",
+      "completion-fg": "ramp.sage.bright",
+      "completion-group-bg": "surface.chrome.panel",
+      "completion-group-fg": "ramp.sage.muted",
+      "completion-highlight-bg": "ramp.sage.bright",
+      "completion-highlight-fg": "surface.chrome.panel",
+      "index-bg": "surface.chrome.panel",
+      "index-fg": "ramp.sage.bright",
+      "index-active-bg": "ramp.sage.bright",
+      "index-active-fg": "surface.chrome.panel",
+      "highlight-fg": "surface.chrome.panel",
+      "render-loading-bg": "surface.chrome.panel",
+      "render-loading-fg": "ramp.sage.bright"
+    }
+  },
   "_pending_components": [
-    "waybar, ghostty, rofi, swaync, swayosd, zathura, yazi, starship, uosc, swayimg,",
-    "mpv, hyprlock, vscode, obsidian — migrated in configs but not yet mapped here.",
-    "Backfill as each is revisited; the map is what makes a migration checkable."
+    "swayosd, uosc, swayimg, mpv, hyprlock, hypr (colors.lua), screenshot.sh — few keys",
+    "each, all already migrated in config; map them when next touched.",
+    "vscode, obsidian — NOT migrated (ROADMAP 3.3). vscode has 15 values outside the",
+    "palette, obsidian has the link-contrast bug (2.74:1)."
   ]
 }
