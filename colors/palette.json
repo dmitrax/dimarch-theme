@@ -96,10 +96,16 @@
     "_note": "Named after materials — charcoal stone, clay, ochre, lichen, sage, patina, heather.",
 
     "sage": {
-      "_role": "BRAND. Seven tiers: carries the full text hierarchy plus brand and state.",
+      "_role": [
+        "BRAND. Eight tiers: carries the full text hierarchy plus brand and state.",
+        "`shade` added 2026-07-26 during the herdr pilot — that component uses five",
+        "steps of sage depth and the ramp only had four below its accent. Solved at",
+        "4.59:1 rather than kept at herdr's own #4a8b6e (4.31, under AA)."
+      ],
       "_hue": 153,
-      "dim":    "#5b8f78",
+      "shade":  "#4d9072",
       "icon":   "#6ba88c",
+      "dim":    "#5b8f78",
       "muted":  "#7aad96",
       "base":   "#7fb89e",
       "deep":   "#89bca5",
@@ -163,6 +169,22 @@
       "dim":    "#93536e",
       "base":   "#b87a95",
       "bright": "#cd98af"
+    },
+
+    "stone": {
+      "_role": [
+        "Weathered stone — neutral carrying a slight sage bias. Secondary labels,",
+        "section headers, dimmer UI text: places that must recede without going cold.",
+        "Added 2026-07-26 during the herdr pilot, which needed three such tiers and",
+        "found the palette offering only two unsuitable options — neutral.muted is",
+        "hue 240 (outright cold) and the sage ramp is three times more saturated.",
+        "Values taken unchanged from herdr: they already cleared AA on both grounds.",
+        "NOT an accent family — it marks neither state nor category, it recedes."
+      ],
+      "_hue": 148,
+      "dim":    "#7a8f84",
+      "base":   "#8a9d93",
+      "bright": "#94a89d"
     }
   },
 

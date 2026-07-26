@@ -1,9 +1,7 @@
 {
   "_comment": "Component map — which key of which config takes which palette role.",
-
   "_version": "1.0.0",
   "_updated": "2026-07-26",
-
   "_why": [
     "palette.json answers 'what colours exist and what do they mean'.",
     "This file answers the question that actually comes first when you open a config:",
@@ -12,7 +10,6 @@
     "config does, which is exactly how the theme drifted into three parallel",
     "sub-palettes before 2026-07-26. A component is not migrated until it is listed here."
   ],
-
   "_how_to_use": [
     "1. Find the component. Read `keys` — left side is the config's own key path,",
     "   right side is a path into palette.json.",
@@ -25,18 +22,15 @@
     "5. Roles may point at other roles: `role.ui.accent` -> `ramp.sage.bright` -> `#c4ddd2`.",
     "   Resolve RECURSIVELY until a literal (`#rrggbb` or `rgba(...)`), not one hop."
   ],
-
   "_status_values": {
     "migrated": "keys resolved from the palette, verified live",
-    "pending":  "map drafted, values not yet applied",
-    "partial":  "some keys migrated, gaps remain"
+    "pending": "map drafted, values not yet applied",
+    "partial": "some keys migrated, gaps remain"
   },
-
   "herdr": {
     "_file": "dotfiles/herdr/.config/herdr/config.toml",
     "_format": "toml",
-    "_status": "pending",
-
+    "_status": "migrated",
     "_findings": [
       "Accepts 16 colour keys, not the catppuccin set its names suggest. Confirmed",
       "empirically with `herdr config check` — the docs do not list them.",
@@ -50,35 +44,40 @@
       "effect anywhere — dead weight, candidates for removal rather than migration.",
       "`accent` appears twice, in [theme.custom] and [ui]. Both must move together."
     ],
-
     "keys": {
-      "theme.custom.accent":   "role.ui.accent",
-      "theme.custom.green":    "ramp.sage.base",
-      "theme.custom.teal":     "ramp.sage.dim",
-      "theme.custom.blue":     "ramp.sage.icon",
-      "theme.custom.red":      "semantic.urgent",
-      "theme.custom.peach":    "semantic.warning",
-      "theme.custom.yellow":   "ramp.ochre.base",
-      "theme.custom.text":     "neutral.primary",
+      "theme.custom.accent": "role.ui.accent",
+      "theme.custom.green": "ramp.sage.base",
+      "theme.custom.teal": "ramp.sage.dim",
+      "theme.custom.blue": "ramp.sage.icon",
+      "theme.custom.red": "semantic.urgent",
+      "theme.custom.peach": "semantic.warning",
+      "theme.custom.yellow": "ramp.ochre.base",
+      "theme.custom.text": "neutral.primary",
       "theme.custom.panel_bg": "surface.terminal.bg",
-      "ui.accent":             "role.ui.accent"
+      "ui.accent": "role.ui.accent",
+      "theme.custom.mauve": "ramp.sage.shade",
+      "theme.custom.subtext0": "ramp.stone.dim",
+      "theme.custom.overlay0": "ramp.stone.base",
+      "theme.custom.overlay1": "ramp.stone.bright",
+      "theme.custom.surface_dim": "surface.terminal.lift"
     },
-
     "_gaps": [
-      "theme.custom.mauve (#4a8b6e) — a deep sage used as a second accent. Nearest",
-      "  existing value is ramp.sage_deep.logo_hover_core, but that is logo ornament,",
-      "  a different role. Needs either a real role or folding into an existing tier.",
-      "theme.custom.overlay0 / overlay1 / subtext0 (#8a9d93 / #94a89d / #7a8f84) —",
-      "  three tiers of muted sage-grey for section labels. The palette offers either",
-      "  the sage ramp (more saturated) or neutral.muted (no tiers). A neutral tier",
-      "  set with a slight sage bias is missing.",
-      "theme.custom.surface_dim (#1c2320) — side panel fill. Close to",
-      "  surface.terminal.lift (#1d2121) but not identical; decide whether it folds",
-      "  into that or needs its own role.",
-      "theme.custom.surface0 / surface1 — dead keys, propose removing rather than mapping."
-    ]
+      "theme.custom.surface0 / surface1 — accepted by the config parser but confirmed",
+      "  to have no visible effect anywhere. Removing rather than mapping; there is no",
+      "  role for a key that paints nothing."
+    ],
+    "_resolved_gaps": [
+      "mauve -> ramp.sage.shade — the pilot's main finding. herdr uses five steps of",
+      "  sage depth; the ramp had four below its accent, so a tier was added. Solved at",
+      "  4.59:1 rather than adopting herdr's #4a8b6e, which sat at 4.31, under AA.",
+      "overlay0/overlay1/subtext0 -> ramp.stone.* — a whole family was missing: neutral",
+      "  with a sage bias, for text that recedes without going cold. Values taken from",
+      "  herdr unchanged, they already cleared AA.",
+      "surface_dim -> surface.terminal.lift — 1-2 units per channel apart, and the hue",
+      "  comes back to the canonical 180."
+    ],
+    "_verified": "2026-07-26 — herdr config check: ok, live"
   },
-
   "_pending_components": [
     "waybar, ghostty, rofi, swaync, swayosd, zathura, yazi, starship, uosc, swayimg,",
     "mpv, hyprlock, vscode, obsidian — migrated in configs but not yet mapped here.",
