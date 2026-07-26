@@ -1,26 +1,75 @@
-/* DimArch Sage — Light
-   Used by: Obsidian, SDDM, Firefox
-   ---------------------------------------------------------------- */
+/* =========================================================
+   DimArch Sage — light tokens
+   Generated from colors/palette.json v2.0.0 — keep in sync.
+   Used by: Obsidian; planned for SDDM and Firefox.
+
+   Light is NOT an inversion of the dark palette. Hues are the same, but
+   every accent is darkened: at their dark-surface lightness they fall to
+   ~2.7:1 on cream and become unreadable. Same principle as the dark side,
+   pointed the other way — an accent works through depth, not brightness.
+
+   Contrast is measured against the DARKER of the two grounds (--bg-alt
+   #f3edd8), so every value below clears AA on both.
+   ========================================================= */
 
 :root {
-  /* Shared accent */
-  --sage:             #7fb89e;
-  --sage-dark:        #6daa8f;
-  --sage-vivid:       #35a77c;
-  --sage-deep:        #2a9068;
+  /* ── grounds ─────────────────────────────────────────────────────── */
+  --bg:        #f8f4ea;
+  --bg-alt:    #f3edd8;
+  --border:    #e8e1cc;
 
-  /* Semantic — status colors, not decoration. Deliberately off-hue from
-     sage so they read as signals, not brand accents. */
-  --warning:          #d97706;
-  --urgent:           #d96c6c;
+  /* ── text ────────────────────────────────────────────────────────── */
+  --text:        #2d3a2e;  /* 10.89 / 10.20 */
+  --text-muted:  #5a6b5c;  /*  5.18 /  4.85 */
+  --text-on-accent: #f8f4ea;
 
-  /* Backgrounds */
-  --bg-primary:       #f8f4ea;
-  --bg-secondary:     #f3edd8;
+  /* ── ramp, darkened for a light ground (hue preserved) ───────────── */
+  --sage:      #347658;  /* 4.93 / 4.62 */
+  --clay:      #c23838;  /* 4.88 / 4.57 */
+  --ochre:     #8a6228;  /* 4.96 / 4.64 */
+  --lichen:    #557331;  /* 4.92 / 4.61 */
+  --patina:    #347470;  /* 4.93 / 4.62 */
+  --heather:   #ab4773;  /* 4.93 / 4.62 */
 
-  /* Surface */
-  --border:           #e8e1cc;
+  /* ── semantic — state, never decoration ──────────────────────────── */
+  --warning:   #9c5a0d;  /* 4.93 / 4.62 — dark #d97706 gives only 2.6 here */
+  --urgent:    #c53333;  /* 4.91 / 4.60 */
 
-  /* Text */
-  --text:             #2d3a2e;
+  /* ── roles: interface STATE — sage only ─────────────────────────── */
+  --ui-accent:    var(--sage);
+  --ui-brand:     var(--sage);
+  --ui-fill:      rgba(52, 118, 88, 0.12);
+  --ui-fill-border: rgba(52, 118, 88, 0.30);
+  --ui-hover:     rgba(45, 58, 46, 0.06);
+  --ui-focus:     var(--sage);
+  --ui-selection: rgba(52, 118, 88, 0.16);
+  --ui-disabled:  var(--text-muted);
+
+  /* ── roles: links ────────────────────────────────────────────────
+     The previous values (#35a77c / #2a9068) gave 2.74 and 3.62 on cream —
+     they were dark-surface greens used on a light ground. Hue is nearly
+     unchanged (157–158°), only depth. */
+  --link:       #1f7957;  /* 4.86 / 4.56 */
+  --link-hover: #1c6f50;  /* 5.56 / 5.21 */
+
+  /* ── roles: status ───────────────────────────────────────────────── */
+  --status-success: var(--sage);
+  --status-warning: var(--warning);
+  --status-urgent:  var(--urgent);
+  --status-error:   var(--clay);
+
+  /* ── roles: content CATEGORY — accents only ─────────────────────── */
+  --file-directory:  var(--sage);
+  --file-symlink:    var(--patina);
+  --file-executable: var(--lichen);
+  --file-archive:    var(--ochre);
+  --file-image:      var(--heather);
+  --file-document:   var(--patina);
+  --file-broken:     var(--clay);
+
+  --git-added:     var(--sage);
+  --git-modified:  var(--ochre);
+  --git-deleted:   var(--clay);
+  --git-untracked: var(--heather);
+  --git-ignored:   var(--text-muted);
 }

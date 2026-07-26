@@ -1,27 +1,217 @@
-/* DimArch Sage — Dark
-   Used by: Ghostty, Waybar, rofi, hyprlock, mako, terminal tools
-   ---------------------------------------------------------------- */
+/* =========================================================
+   DimArch Sage — dark tokens
+   Generated from colors/palette.json v2.0.0 — keep in sync.
+   palette.json is the source of truth; change colors THERE first.
+
+   Two layers, same as the JSON:
+     --sage-* / --clay-* / ...  raw ramp — the material
+     --text-* / --ui-* / ...    roles — what components should reference
+
+   THE RULE: sage marks STATE (active, selected, focus, success, all text);
+   accents mark CATEGORY (file type, language, git status, kind of signal).
+   An accent may never mark a state, sage may never mark a category. That
+   is what keeps this a Sage theme rather than six equal colors.
+   ========================================================= */
 
 :root {
-  /* Shared accent */
-  --sage:             #7fb89e;
-  --sage-dark:        #6daa8f;
-  --sage-vivid:       #35a77c;
-  --sage-deep:        #2a9068;
+  /* ── ramp: sage — brand, 7 tiers, carries the text hierarchy ────── */
+  --sage-dim:        #5b8f78;  /* 4.89 — the one dim tier safe for text */
+  --sage-icon:       #6ba88c;  /* pinned: graphical elements stay fixed */
+  --sage-muted:      #7aad96;
+  --sage-base:       #7fb89e;
+  --sage-deep:       #89bca5;
+  --sage-soft:       #98c2af;
+  --sage-bright:     #c4ddd2;  /* 12.49 — loudest tier in the palette   */
 
-  /* Semantic — status colors, not decoration. Deliberately off-hue from
-     sage so they read as signals, not brand accents. */
-  --warning:          #d97706;
-  --urgent:           #d96c6c;
+  /* ── ramp: accents, 3 tiers each ─────────────────────────────────
+     dim tiers are for fills / borders / markers — NOT small text:
+     clay 3.13 · patina 3.59 · heather 3.21 clear 3:1 but fail AA text. */
+  --clay-dim:        #ac4242;
+  --clay-base:       #d96c6c;
+  --clay-bright:     #e49393;
 
-  /* Backgrounds */
-  --bg-primary:       #262f2c;
-  --bg-secondary:     #212b28;
-  --bg-tertiary:      #1d2623;
+  --ochre-dim:       #9f753a;
+  --ochre-base:      #d4a96a;
+  --ochre-bright:    #e4ba7a;
 
-  /* Surface */
-  --border:           #3a4a42;
+  --lichen-dim:      #688349;
+  --lichen-base:     #91b06d;
+  --lichen-bright:   #afc992;
 
-  /* Text */
-  --text:             #d3c6aa;
+  --patina-dim:      #4c7673;
+  --patina-base:     #7fb8b4;
+  --patina-bright:   #8fccc8;
+
+  --heather-dim:     #93536e;
+  --heather-base:    #b87a95;
+  --heather-bright:  #cd98af;
+
+  /* ── neutrals ───────────────────────────────────────────────────── */
+  --neutral-black:     #1f2424;
+  --neutral-muted:     #82828c;  /* comments, ANSI 8 — 4.72 / 4.57      */
+  --neutral-secondary: #c8c4be;
+  --neutral-primary:   #edeae4;
+  --neutral-disabled:  #75757f;  /* 3.99 — non-text use only            */
+
+  /* ── semantic — state, never decoration ─────────────────────────── */
+  --warning:         #d97706;  /* deliberately outside the muted limit  */
+  --urgent:          #d96c6c;  /* same value as --clay-base, by design  */
+
+  /* ── surfaces ────────────────────────────────────────────────────
+     Hue unified to 180° (G = B) 2026-07-26. Alphas are NOT unified —
+     they encode surface depth: rofi .72, panel .78, osd .85, cc .90.  */
+  --chrome-panel:         rgba(13, 25, 25, 0.78);
+  --chrome-panel-solid:   #0d1919;
+  /* The bottom panel is dimarch-taskbar (separate repo, GTK4), NOT a second
+     Waybar — Waybar runs one instance from config-top.jsonc. Left at hue 190;
+     the top panel's move to 180 was invisible side by side, so there is no
+     case for propagating it to a component not yet themed. */
+  --chrome-panel-bottom:  rgba(19, 19, 22, 0.75);
+  --chrome-glass-dark:    #091313;
+  --chrome-module:        rgba(255, 255, 255, 0.05);
+  --chrome-hover:         rgba(255, 255, 255, 0.08);
+  --chrome-active:        rgba(127, 184, 158, 0.20);
+  --chrome-active-border: rgba(127, 184, 158, 0.35);
+  --chrome-border:        rgba(255, 255, 255, 0.07);
+  --chrome-border-module: rgba(255, 255, 255, 0.05);
+
+  --terminal-bg:        #171b1b;
+  --terminal-lift:      #1d2121;
+  --terminal-fg:        #edeae4;
+  --terminal-cursor:    #7fb89e;
+  --terminal-selection: #3f7a63;
+  --terminal-on-accent: #12141a;  /* dark text ON a sage/ochre fill     */
+
+  --editor-activity: #0d1919;
+  --editor-sidebar:  #121b1b;
+  --editor-bg:       #171b1b;
+
+  --window-active-border:   rgba(0, 0, 0, 0.14);
+  --window-inactive-border: rgba(0, 0, 0, 0.06);
+
+  /* ── roles: text ────────────────────────────────────────────────── */
+  --text-primary:   var(--sage-bright);
+  --text-secondary: var(--sage-soft);
+  --text-tertiary:  var(--sage-muted);
+  --text-faded:     var(--sage-dim);
+  --text-neutral:   var(--neutral-primary);
+  --text-comment:   var(--neutral-muted);
+  --text-on-accent: var(--terminal-on-accent);
+
+  /* ── roles: interface STATE — sage only ─────────────────────────── */
+  --ui-accent:      var(--sage-bright);
+  --ui-brand:       var(--sage-base);
+  --ui-icon:        var(--sage-icon);
+  --ui-accent-deep: var(--sage-deep);
+  --ui-fill:        var(--chrome-active);
+  --ui-fill-border: var(--chrome-active-border);
+  --ui-hover:       var(--chrome-hover);
+  --ui-focus:       var(--sage-base);
+  --ui-selection:   var(--chrome-active);
+  --ui-cursor:      var(--sage-base);
+  --ui-progress:    var(--sage-base);
+  --ui-active-tab:  var(--sage-base);
+  --ui-disabled:    var(--sage-dim);
+
+  /* ── roles: status ──────────────────────────────────────────────── */
+  --status-success: var(--sage-base);
+  --status-warning: var(--warning);
+  --status-urgent:  var(--urgent);
+  --status-error:   var(--clay-base);
+
+  /* ── roles: content CATEGORY — accents only ─────────────────────── */
+  --file-directory:  var(--sage-base);   /* a navigable state, not a type */
+  --file-symlink:    var(--patina-base);
+  --file-executable: var(--lichen-base);
+  --file-archive:    var(--ochre-base);
+  --file-image:      var(--heather-base);
+  --file-video:      var(--heather-bright);
+  --file-audio:      var(--ochre-bright);
+  --file-document:   var(--patina-bright);
+  --file-broken:     var(--clay-base);
+
+  --git-added:     var(--sage-base);
+  --git-clean:     var(--sage-base);
+  --git-branch:    var(--sage-soft);
+  --git-modified:  var(--ochre-base);
+  --git-deleted:   var(--clay-base);
+  --git-untracked: var(--heather-base);
+  --git-ignored:   var(--neutral-muted);
+  --git-conflict:  var(--clay-base);
+
+  --lang-node:     var(--lichen-base);
+  --lang-python:   var(--patina-bright);
+  --lang-rust:     var(--ochre-bright);
+  --lang-duration: var(--heather-base);
+
+  /* ── roles: panel signals ───────────────────────────────────────
+     At rest the bar is entirely sage. These appear ONLY on an event. */
+  --panel-weather-cold:     var(--patina-bright);
+  --panel-weather-normal:   var(--patina-base);
+  --panel-weather-hot:      var(--ochre-base);
+  --panel-weather-danger:   var(--warning);
+  --panel-media-playing:    var(--heather-base);
+  --panel-mic-active:       var(--ochre-base);
+  --panel-muted:            var(--neutral-muted);
+  --panel-vpn-connected:    var(--sage-base);
+  --panel-caffeine:         var(--lichen-base);
+  --panel-notification:     var(--sage-bright);
+  --panel-dnd:              var(--warning);
+  --panel-capslock:         var(--warning);
+  --panel-load-high:        var(--warning);
+  --panel-load-critical:    var(--urgent);
+  --panel-workspace-urgent: var(--urgent);
+
+  --link: var(--patina-base);
+
+  /* ── ANSI 16 ────────────────────────────────────────────────────
+     Slot 4 resolves to lichen: blue and green previously shared one hue
+     (152° vs 153°), so the terminal had two colors in name only.
+     Slot 0 is structural — never a readable foreground.              */
+  --ansi-0:  var(--neutral-black);
+  --ansi-1:  var(--clay-base);
+  --ansi-2:  var(--sage-base);
+  --ansi-3:  var(--ochre-base);
+  --ansi-4:  var(--lichen-base);
+  --ansi-5:  var(--heather-base);
+  --ansi-6:  var(--patina-base);
+  --ansi-7:  var(--neutral-secondary);
+  --ansi-8:  var(--neutral-muted);
+  --ansi-9:  var(--clay-bright);
+  --ansi-10: var(--sage-bright);
+  --ansi-11: var(--ochre-bright);
+  --ansi-12: var(--lichen-bright);
+  --ansi-13: var(--heather-bright);
+  --ansi-14: var(--patina-bright);
+  --ansi-15: var(--neutral-primary);
 }
+
+/* GTK3 fallback (@define-color) — swayosd and older GTK stylesheets.
+   GTK4 (swaync) reads the :root custom properties above directly.
+   Names kept as-is for drop-in compatibility with existing configs. */
+@define-color sage_dim    #5b8f78;
+@define-color sage_icon   #6ba88c;
+@define-color sage_muted  #7aad96;
+@define-color sage_base   #7fb89e;
+@define-color sage_deep   #89bca5;
+@define-color sage_soft   #98c2af;
+@define-color sage_bright #c4ddd2;
+
+@define-color text_main    #c4ddd2;
+@define-color text_soft    #98c2af;
+@define-color text_muted   #7aad96;
+@define-color text_faded   #5b8f78;
+@define-color text_neutral #edeae4;
+
+@define-color accent      #c4ddd2;
+@define-color accent_dark #89bca5;
+@define-color urgent      #d96c6c;
+@define-color warning     #d97706;
+
+@define-color bg_panel        rgba(13, 25, 25, 0.78);
+@define-color bg_panel_bottom rgba(19, 19, 22, 0.75);
+@define-color bg_module       rgba(255, 255, 255, 0.05);
+@define-color bg_hover        rgba(255, 255, 255, 0.08);
+@define-color bg_active       rgba(127, 184, 158, 0.20);
+@define-color border_soft     rgba(255, 255, 255, 0.07);
+@define-color border_module   rgba(255, 255, 255, 0.05);

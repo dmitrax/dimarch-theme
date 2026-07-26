@@ -1,32 +1,333 @@
 {
-  "_comment": "DimArch Sage — official color palette",
+  "_comment": "DimArch Sage — official color palette. Source of truth for every color value in the DimArch OS repositories.",
 
-  "shared": {
-    "sage":       "#7fb89e",
-    "sage_dark":  "#6daa8f",
-    "sage_vivid": "#35a77c",
-    "sage_deep":  "#2a9068"
+  "_version": "2.0.0",
+  "_updated": "2026-07-26",
+
+  "_structure": [
+    "Two layers. `ramp` holds hue families — the raw material, named after materials, not hues.",
+    "`role` maps meaning onto them; components reference ROLES, never ramp entries directly.",
+    "That indirection is the point: a token named `link` cannot be quietly 'unified' into sage",
+    "without first answering whether links should be indistinguishable from body text.",
+    "v1 of this file described VSCode and Obsidian only, while the real system theme lived",
+    "in the dimarch repo and had drifted into three parallel sub-palettes. See _history."
+  ],
+
+  "_hierarchy": [
+    "Sage is NOT one of six equal families. It is the brand, and it dominates:",
+    "  · ~18% of screen area (all chrome and terminal text) vs ~4% for all five accents combined",
+    "  · loudest tier in the palette — sage.bright 12.49:1, nearest accent 9.9:1",
+    "  · seven tiers where accents have three, because only sage carries a text hierarchy",
+    "THE RULE THAT PROTECTS THIS:",
+    "  sage    = STATE of the interface — active, selected, hover, focus, success, all text",
+    "  accents = CATEGORY of content   — file type, language, git status, kind of signal",
+    "An accent may never mark a state; sage may never mark a category. Same spirit as the",
+    "semantic rule below. Without it sage decays into 17% of roles and the theme stops",
+    "reading as Sage — measured, not hypothetical."
+  ],
+
+  "_geometry": [
+    "Warm natural arc 334° → 176°, about 202° long. The 177–333° range is deliberately empty:",
+    "no azure, no violet, no synthetic purple. Rejected on a live test — cold hues fight the",
+    "warm sage and read as foreign. Everforest (already in use in this setup's Obsidian and",
+    "VSCode) is built the same way: its `blue` is teal 172°, its `purple` is pink 331°.",
+    "Neighbour spacing: 26° / 36° / 52° / 65° / 23°. All clear the 20° minimum."
+  ],
+
+  "_contrast": [
+    "Measured against surface.chrome #0d1919 and surface.terminal #171b1b.",
+    "base and bright tiers clear 4.5:1 (WCAG AA text).",
+    "dim tier is for fills, borders, markers and large icons — NOT small text.",
+    "  clay.dim 3.13 · patina.dim 3.59 · heather.dim 3.21 all clear 3:1 for UI but fail AA text.",
+    "  sage.dim is the exception at 4.89 — it doubles as the faded text tier.",
+    "In a muted palette an accent works through DEPTH (lower lightness), not brightness:",
+    "an accent at sage's own lightness competes with it and reads dusty. Verified live."
+  ],
+
+  "ramp": {
+    "_note": "Named after materials — charcoal stone, clay, ochre, lichen, sage, patina, heather.",
+
+    "sage": {
+      "_role": "BRAND. Seven tiers: carries the full text hierarchy plus brand and state.",
+      "_hue": 153,
+      "dim":    "#5b8f78",
+      "icon":   "#6ba88c",
+      "muted":  "#7aad96",
+      "base":   "#7fb89e",
+      "deep":   "#89bca5",
+      "soft":   "#98c2af",
+      "bright": "#c4ddd2"
+    },
+
+    "clay": {
+      "_role": "SEMANTIC ONLY — negative states. Never decorative. clay.base IS `urgent`.",
+      "_hue": 0,
+      "dim":    "#ac4242",
+      "base":   "#d96c6c",
+      "bright": "#e49393"
+    },
+
+    "ochre": {
+      "_role": "Change, archives, duration, attention without alarm.",
+      "_hue": 36,
+      "dim":    "#9f753a",
+      "base":   "#d4a96a",
+      "bright": "#e4ba7a"
+    },
+
+    "lichen": {
+      "_role": "Executables, Node, caffeine. Fills ANSI blue without a cold hue.",
+      "_hue": 88,
+      "dim":    "#688349",
+      "base":   "#91b06d",
+      "bright": "#afc992"
+    },
+
+    "patina": {
+      "_role": "Links, documents, symlinks, cool weather. The cold limit of the palette.",
+      "_hue": 176,
+      "dim":    "#4c7673",
+      "base":   "#7fb8b4",
+      "bright": "#8fccc8"
+    },
+
+    "heather": {
+      "_role": "Images, media, selection. Replaces synthetic violet, stays on the warm side.",
+      "_hue": 334,
+      "dim":    "#93536e",
+      "base":   "#b87a95",
+      "bright": "#cd98af"
+    }
   },
 
-  "_semantic_comment": "Status colors — meaning, not decoration. Do not use for brand accents; kept deliberately off-hue from sage so they read as signals. See dimarch waybar/style.css and swaync/style.css for the original usage this was extracted from.",
+  "neutral": {
+    "black":     "#1f2424",
+    "muted":     "#82828c",
+    "secondary": "#c8c4be",
+    "primary":   "#edeae4",
+
+    "_muted_note": [
+      "Raised from #75757f (3.99:1 — below AA) 2026-07-26. That value was set by pixel-sampling",
+      "Claude Code's comment color; it stays available as `disabled` for non-text use.",
+      "#82828c gives 4.72 / 4.57 while keeping saturation at 4%."
+    ],
+    "disabled": "#75757f"
+  },
 
   "semantic": {
+    "_note": [
+      "Status colors — meaning, not decoration. Never use for brand accents.",
+      "`urgent` is deliberately the same value as clay.base: the clay family is itself",
+      "semantic (errors, deletions, broken links, critical load) and appears nowhere",
+      "decorative, so the signal is not diluted by sharing one hex.",
+      "`warning` is NOT ochre — at 95% saturation it sits outside the palette's muted limit",
+      "on purpose, so it can cut through instantly. Keep it a separate token."
+    ],
     "warning": "#d97706",
     "urgent":  "#d96c6c"
   },
 
-  "dark": {
-    "bg_primary":   "#262f2c",
-    "bg_secondary": "#212b28",
-    "bg_tertiary":  "#1d2623",
-    "border":       "#3a4a42",
-    "text":         "#d3c6aa"
+  "surface": {
+    "_note": [
+      "Hue unified to 180° on 2026-07-26 (from 190–195°). At 180° G equals B — the point where",
+      "the blue cast disappears but green does not yet dominate, satisfying the project's own",
+      "G>=B rule. Contrast cost is negligible (12.67 -> 12.49 to sage.bright).",
+      "An earlier green shift was reverted, but that attempt (#181e1a) changed THREE things at",
+      "once — hue, +5pp lightness and a third of the saturation. The 'muddy khaki' reading",
+      "likely came from the lightness. A pure hue shift had never been tried.",
+      "NEEDS A LIVE LOOK before propagating — see ROADMAP step 1.",
+      "Alpha levels are NOT unified: they encode surface depth, not drift."
+    ],
+
+    "chrome": {
+      "_use": "Translucent glass — waybar (top only), rofi, swaync, swayosd, zathura, hyprlock",
+      "_panel_bottom_note": [
+        "The bottom panel is NOT a second Waybar — that role belongs to dimarch-taskbar",
+        "(separate repo, Python + GTK4). Waybar runs a single instance from",
+        "config-top.jsonc; the `window#waybar.bottom` rules in its stylesheet are dead.",
+        "This token stays valid: it is the reference tone for the taskbar to consume.",
+        "Left at hue 190 for now — the top panel moved to 180 on 2026-07-26 but the",
+        "shift was invisible side by side, so there is no case for propagating it to a",
+        "component that hasn't been themed yet. Decide once the taskbar is styled."
+      ],
+      "panel":        "#0d1919",
+      "panel_alpha":  0.78,
+      "panel_bottom": "#131316",
+      "bottom_alpha": 0.75,
+      "glass_dark":   "#091313",
+      "module":       "rgba(255, 255, 255, 0.05)",
+      "hover":        "rgba(255, 255, 255, 0.08)",
+      "active":       "rgba(127, 184, 158, 0.20)",
+      "active_border":"rgba(127, 184, 158, 0.35)",
+      "border":       "rgba(255, 255, 255, 0.07)",
+      "border_module":"rgba(255, 255, 255, 0.05)",
+      "_alpha_note": "rofi 0.72 · waybar 0.78 · swayosd 0.85 · swaync noti 0.85 / cc 0.90"
+    },
+
+    "terminal": {
+      "_use": "Opaque — ghostty and everything rendered inside it (yazi, starship, uosc, swayimg)",
+      "bg":        "#171b1b",
+      "lift":      "#1d2121",
+      "fg":        "#edeae4",
+      "cursor":    "#7fb89e",
+      "selection": "#3f7a63",
+      "on_accent": "#12141a",
+      "_on_accent_note": "Dark text drawn ON sage/ochre fills — a foreground role, not a background."
+    },
+
+    "editor": {
+      "_use": "VSCode dark and Obsidian light",
+      "dark": {
+        "activity": "#0d1919",
+        "sidebar":  "#121b1b",
+        "editor":   "#171b1b"
+      },
+      "light": {
+        "bg":     "#f8f4ea",
+        "alt":    "#f3edd8",
+        "border": "#e8e1cc",
+        "text":   "#2d3a2e"
+      }
+    },
+
+    "window": {
+      "_use": "Hyprland window frames — deliberately neutral, not sage. Borders sit on arbitrary content.",
+      "active_border":   "rgba(00000024)",
+      "inactive_border": "rgba(00000010)"
+    }
   },
 
-  "light": {
-    "bg_primary":   "#f8f4ea",
-    "bg_secondary": "#f3edd8",
-    "border":       "#e8e1cc",
-    "text":         "#2d3a2e"
-  }
+  "role": {
+    "_note": "What components reference. Values are ramp paths, resolved by the generator.",
+
+    "text": {
+      "primary":   "ramp.sage.bright",
+      "secondary": "ramp.sage.soft",
+      "tertiary":  "ramp.sage.muted",
+      "faded":     "ramp.sage.dim",
+      "neutral":   "neutral.primary",
+      "comment":   "neutral.muted",
+      "on_accent": "surface.terminal.on_accent"
+    },
+
+    "ui": {
+      "_note": "STATE of the interface — sage only. An accent must never appear here.",
+      "accent":        "ramp.sage.bright",
+      "brand":         "ramp.sage.base",
+      "icon":          "ramp.sage.icon",
+      "accent_deep":   "ramp.sage.deep",
+      "fill":          "surface.chrome.active",
+      "fill_border":   "surface.chrome.active_border",
+      "hover":         "surface.chrome.hover",
+      "focus":         "ramp.sage.base",
+      "selection":     "surface.chrome.active",
+      "cursor":        "ramp.sage.base",
+      "progress":      "ramp.sage.base",
+      "active_tab":    "ramp.sage.base",
+      "disabled":      "ramp.sage.dim"
+    },
+
+    "status": {
+      "success": "ramp.sage.base",
+      "warning": "semantic.warning",
+      "urgent":  "semantic.urgent",
+      "error":   "ramp.clay.base"
+    },
+
+    "file": {
+      "_note": "CATEGORY of content — accents only. Sage marks only the directory (a navigable state).",
+      "directory":  "ramp.sage.base",
+      "symlink":    "ramp.patina.base",
+      "executable": "ramp.lichen.base",
+      "archive":    "ramp.ochre.base",
+      "image":      "ramp.heather.base",
+      "video":      "ramp.heather.bright",
+      "audio":      "ramp.ochre.bright",
+      "document":   "ramp.patina.bright",
+      "broken":     "ramp.clay.base"
+    },
+
+    "git": {
+      "added":     "ramp.sage.base",
+      "clean":     "ramp.sage.base",
+      "branch":    "ramp.sage.soft",
+      "modified":  "ramp.ochre.base",
+      "deleted":   "ramp.clay.base",
+      "untracked": "ramp.heather.base",
+      "ignored":   "neutral.muted",
+      "conflict":  "ramp.clay.base"
+    },
+
+    "lang": {
+      "node":   "ramp.lichen.base",
+      "python": "ramp.patina.bright",
+      "rust":   "ramp.ochre.bright",
+      "duration": "ramp.heather.base"
+    },
+
+    "panel": {
+      "_note": "At rest the bar is entirely sage. Accents appear ONLY on an event.",
+      "weather_cold":   "ramp.patina.bright",
+      "weather_normal": "ramp.patina.base",
+      "weather_hot":    "ramp.ochre.base",
+      "weather_danger": "semantic.warning",
+      "media_playing":  "ramp.heather.base",
+      "mic_active":     "ramp.ochre.base",
+      "muted":          "neutral.muted",
+      "vpn_connected":  "ramp.sage.base",
+      "caffeine":       "ramp.lichen.base",
+      "notification":   "ramp.sage.bright",
+      "dnd":            "semantic.warning",
+      "capslock":       "semantic.warning",
+      "load_high":      "semantic.warning",
+      "load_critical":  "semantic.urgent",
+      "workspace_urgent": "semantic.urgent"
+    },
+
+    "link": {
+      "_note": "Light surfaces need depth, not the dark-surface greens. #35a77c gave 2.74:1 on cream.",
+      "dark":        "ramp.patina.base",
+      "light":       "#1f7957",
+      "light_hover": "#1c6f50"
+    }
+  },
+
+  "ansi": {
+    "_note": [
+      "Terminal protocol requirement, filled from the palette. Slot 4 (blue) resolves to lichen 88°",
+      "rather than inventing a second near-identical cyan: previously blue #6ba88c and green",
+      "#7fb89e sat on the SAME hue (152° vs 153°), so the terminal nominally had two colors and",
+      "effectively one. Lichen restores a 65° separation without introducing a cold hue.",
+      "Slot 0 is a structural slot — never a readable foreground."
+    ],
+    "0":  "neutral.black",
+    "1":  "ramp.clay.base",
+    "2":  "ramp.sage.base",
+    "3":  "ramp.ochre.base",
+    "4":  "ramp.lichen.base",
+    "5":  "ramp.heather.base",
+    "6":  "ramp.patina.base",
+    "7":  "neutral.secondary",
+    "8":  "neutral.muted",
+    "9":  "ramp.clay.bright",
+    "10": "ramp.sage.bright",
+    "11": "ramp.ochre.bright",
+    "12": "ramp.lichen.bright",
+    "13": "ramp.heather.bright",
+    "14": "ramp.patina.bright",
+    "15": "neutral.primary"
+  },
+
+  "_history": [
+    "2026-07-12 — semantic section extracted from the dimarch repo (warning, urgent).",
+    "2026-07-26 — v2. Audit of ~20 component configs found the theme had split into three",
+    "  parallel sub-palettes and that this file described none of them. Four orphan colors",
+    "  removed from dimarch (#2f7d68, #d65d5d, #7c8cd8, #c8cad4), surfaces resynced.",
+    "  Accent families chosen with an external color audit, verified independently:",
+    "  19/19 contrast figures confirmed to the hundredth. Rejected from that audit:",
+    "  clay.base and urgent being presented as unrelated (they are one value by design),",
+    "  and the loss of #6ba88c, which is pinned by an explicit user request in waybar.",
+    "  Retired values: #c47a7a #d48a8a (-> clay), #a07fb8 #b08fc8 (-> heather),",
+    "  #7a9cc4 #8aacd4 (-> lichen/patina), #75757f (-> neutral.muted, kept as disabled)."
+  ]
 }
