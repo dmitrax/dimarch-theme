@@ -44,6 +44,54 @@
     "an accent at sage's own lightness competes with it and reads dusty. Verified live."
   ],
 
+  "ramp_light": {
+    "_note": [
+      "Light-surface variants. NOT an inversion of `ramp` — the hues are identical but",
+      "every value is recalculated: at their dark-surface lightness these accents give",
+      "~2.7:1 on cream and are unreadable. Same principle as the dark side pointed the",
+      "other way, so `bright` here is DEEPER than `base`, not lighter.",
+      "Contrast is solved against the darker of the two light grounds (#f3edd8), so every",
+      "value clears AA on both. base targets 4.6, bright targets 6.5.",
+      "`dim` is intentionally absent: on a light ground the fill/border role is served by",
+      "low-alpha tints of base, not by a separate darker tier."
+    ],
+    "sage":    { "base": "#347658", "bright": "#245d43" },
+    "clay":    { "base": "#c23838", "bright": "#9f2424" },
+    "ochre":   { "base": "#8a6228", "bright": "#6f4d19" },
+    "lichen":  { "base": "#557331", "bright": "#415b22" },
+    "patina":  { "base": "#347470", "bright": "#245d59" },
+    "heather": { "base": "#ab4773", "bright": "#8e335a" }
+  },
+
+  "ansi_light": {
+    "_note": [
+      "For ghostty's light profile. Mirrors `ansi` slot for slot, on the light ramp.",
+      "The mirrored structural slot is 15, not 0: in the dark palette slot 0 is the",
+      "background-adjacent value that can never be a readable foreground, and on a light",
+      "ground that role falls to bright white instead. Slot 0 becomes the darkest text.",
+      "Everything else clears AA — the profile previously had 11 of 13 colour slots below",
+      "the threshold (as low as 2.23), and blue duplicated green's hue exactly, the same",
+      "defect the dark profile had. NOT YET APPLIED to light.ghostty: slot 4 is lichen,",
+      "which is still pending a live look — see ROADMAP step 1.2."
+    ],
+    "0":  "surface.editor.light.text",
+    "1":  "ramp_light.clay.base",
+    "2":  "ramp_light.sage.base",
+    "3":  "ramp_light.ochre.base",
+    "4":  "ramp_light.lichen.base",
+    "5":  "ramp_light.heather.base",
+    "6":  "ramp_light.patina.base",
+    "7":  "surface.editor.light.text_muted",
+    "8":  "surface.editor.light.comment",
+    "9":  "ramp_light.clay.bright",
+    "10": "ramp_light.sage.bright",
+    "11": "ramp_light.ochre.bright",
+    "12": "ramp_light.lichen.bright",
+    "13": "ramp_light.heather.bright",
+    "14": "ramp_light.patina.bright",
+    "15": "surface.editor.light.structural"
+  },
+
   "ramp": {
     "_note": "Named after materials — charcoal stone, clay, ochre, lichen, sage, patina, heather.",
 
@@ -186,7 +234,10 @@
         "bg":     "#f8f4ea",
         "alt":    "#f3edd8",
         "border": "#e8e1cc",
-        "text":   "#2d3a2e"
+        "text":   "#2d3a2e",
+        "text_muted": "#5a6b5c",
+        "comment":    "#716868",
+        "structural": "#f7f5f0"
       }
     },
 

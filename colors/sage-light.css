@@ -21,15 +21,21 @@
   /* ── text ────────────────────────────────────────────────────────── */
   --text:        #2d3a2e;  /* 10.89 / 10.20 */
   --text-muted:  #5a6b5c;  /*  5.18 /  4.85 */
+  --comment:     #716868;  /*  4.93 /  4.62 — ANSI 8 */
   --text-on-accent: #f8f4ea;
+  /* Background-adjacent. On a light ground this is the slot that can never be
+     a readable foreground — the mirror of slot 0 in the dark palette. */
+  --structural:  #f7f5f0;
 
-  /* ── ramp, darkened for a light ground (hue preserved) ───────────── */
-  --sage:      #347658;  /* 4.93 / 4.62 */
-  --clay:      #c23838;  /* 4.88 / 4.57 */
-  --ochre:     #8a6228;  /* 4.96 / 4.64 */
-  --lichen:    #557331;  /* 4.92 / 4.61 */
-  --patina:    #347470;  /* 4.93 / 4.62 */
-  --heather:   #ab4773;  /* 4.93 / 4.62 */
+  /* ── ramp, darkened for a light ground (hue preserved) ───────────
+     `bright` is DEEPER than `base`, not lighter: on cream, brightness costs
+     legibility, so emphasis is carried by contrast (4.6 → 6.5). */
+  --sage:      #347658;  --sage-bright:    #245d43;
+  --clay:      #c23838;  --clay-bright:    #9f2424;
+  --ochre:     #8a6228;  --ochre-bright:   #6f4d19;
+  --lichen:    #557331;  --lichen-bright:  #415b22;
+  --patina:    #347470;  --patina-bright:  #245d59;
+  --heather:   #ab4773;  --heather-bright: #8e335a;
 
   /* ── semantic — state, never decoration ──────────────────────────── */
   --warning:   #9c5a0d;  /* 4.93 / 4.62 — dark #d97706 gives only 2.6 here */
@@ -72,4 +78,28 @@
   --git-deleted:   var(--clay);
   --git-untracked: var(--heather);
   --git-ignored:   var(--text-muted);
+
+  /* ── ANSI 16 — ghostty light profile ────────────────────────────
+     Mirrors the dark palette slot for slot. The structural slot here is 15,
+     not 0: on a light ground bright-white is the background-adjacent value
+     that can never be a readable foreground.
+     NOT YET APPLIED to light.ghostty — slot 4 is lichen, pending a live look
+     (ROADMAP step 1.2). The profile currently has 11 of 13 colour slots below
+     AA, some as low as 2.23, with blue duplicating green's hue exactly. */
+  --ansi-0:  var(--text);
+  --ansi-1:  var(--clay);
+  --ansi-2:  var(--sage);
+  --ansi-3:  var(--ochre);
+  --ansi-4:  var(--lichen);
+  --ansi-5:  var(--heather);
+  --ansi-6:  var(--patina);
+  --ansi-7:  var(--text-muted);
+  --ansi-8:  var(--comment);
+  --ansi-9:  var(--clay-bright);
+  --ansi-10: var(--sage-bright);
+  --ansi-11: var(--ochre-bright);
+  --ansi-12: var(--lichen-bright);
+  --ansi-13: var(--heather-bright);
+  --ansi-14: var(--patina-bright);
+  --ansi-15: var(--structural);
 }
