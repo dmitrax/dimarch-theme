@@ -520,10 +520,19 @@
     },
 
     "link": {
-      "_note": "Light surfaces need depth, not the dark-surface greens. #35a77c gave 2.74:1 on cream.",
-      "dark":        "ramp.patina.base",
-      "light":       "#1f7957",
-      "light_hover": "#1c6f50"
+      "_note": [
+        "Light surfaces need depth, not the dark-surface greens. #35a77c gave 2.74:1 on cream.",
+        "`light` and `light_hover` are literals rather than ramp paths: they sit on the sage",
+        "hue (157–158°) but at a depth ramp_light does not carry. Revisit if ramp_light ever",
+        "grows a deeper tier.",
+        "`light_unresolved` is ochre, not clay: in Obsidian a link with no note behind it is",
+        "an ordinary state, not a failure — clay would shout about something routine. The",
+        "value it replaces, #8da101, was an Everforest leftover at 2.64 on cream."
+      ],
+      "dark":             "ramp.patina.base",
+      "light":            "#1f7957",
+      "light_hover":      "#1c6f50",
+      "light_unresolved": "ramp_light.ochre.base"
     }
   },
 

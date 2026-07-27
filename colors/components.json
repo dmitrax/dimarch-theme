@@ -89,6 +89,41 @@
       "this format and are not mapped yet — they resolve to surface.editor.light.*"
     ]
   },
+  "obsidian": {
+    "_file": "dotfiles/obsidian/.obsidian/snippets/sage.css",
+    "_format": "css",
+    "_status": "migrated",
+    "_ground": "light",
+    "keys": {
+      "background-primary": "surface.editor.light.bg",
+      "background-secondary": "surface.editor.light.alt",
+      "background-primary-alt": "surface.editor.light.alt",
+      "background-modifier-border": "surface.editor.light.border",
+      "titlebar-background": "surface.editor.light.alt",
+      "titlebar-background-focused": "surface.editor.light.alt",
+      "tab-container-background": "surface.editor.light.alt",
+      "tab-background-active": "surface.editor.light.bg",
+      "link-color": "role.link.light",
+      "link-color-hover": "role.link.light_hover",
+      "link-unresolved-color": "role.link.light_unresolved"
+    },
+    "_gaps": [
+      "button.mod-cta colour is #ffffff, not a token. It gives 5.41 on the light sage",
+      "  fill, so it passes — but pure white appears nowhere else in the palette.",
+      "  Left as-is rather than inventing a role for one button.",
+      "The bundled `Everforest Enchanted` theme under themes/ is upstream and unthemed:",
+      "  this snippet overrides it. Its own values are not mapped."
+    ],
+    "_findings": [
+      "The only component on a light ground besides ghostty's light profile, and the",
+      "only place the audit found an accessibility bug: all three link colours failed",
+      "AA on cream (2.74 / 3.62 / 2.64 against 4.5). They were dark-surface greens and",
+      "an Everforest leftover, used on a light ground unchanged.",
+      "Mapped 2026-07-27, having been absent from this file entirely — the same way",
+      "ghostty's light profile was absent, and for the same reason: light lives outside",
+      "what `palette check` was built to see."
+    ]
+  },
   "herdr": {
     "_file": "dotfiles/herdr/.config/herdr/config.toml",
     "_format": "toml",
