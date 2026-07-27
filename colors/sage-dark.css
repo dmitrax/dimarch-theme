@@ -25,36 +25,41 @@
 
   /* ── ramp: accents, 3 tiers each ─────────────────────────────────
      dim tiers are for fills / borders / markers — NOT small text:
-     clay 3.13 · patina 3.59 · heather 3.21 clear 3:1 but fail AA text. */
+     clay 3.09 · cinnamon 4.00 · patina 4.11 clear 3:1; only sage 4.82 and
+     lichen 4.21 also clear AA text. */
   --clay-dim:        #ac4242;
   --clay-base:       #d96c6c;
   --clay-bright:     #e49393;
 
+  --cinnamon-dim:    #bc5b2f;  /* media — added v3, hue 19             */
+  --cinnamon-base:   #c46b45;
+  --cinnamon-bright: #de895e;
+
   --ochre-dim:       #9f753a;
   --ochre-base:      #d4a96a;
   --ochre-bright:    #e4ba7a;
+  --ochre-vivid:     #d97706;  /* was --warning; 4° from base in hue    */
 
   --lichen-dim:      #688349;
   --lichen-base:     #91b06d;
   --lichen-bright:   #afc992;
 
-  --patina-dim:      #4c7673;
-  --patina-base:     #7fb8b4;
-  --patina-bright:   #8fccc8;
-
-  --heather-dim:     #93536e;
-  --heather-base:    #b87a95;
-  --heather-bright:  #cd98af;
+  /* Recut in v3: the old base carried sage's exact saturation and
+     lightness and was indistinguishable from it. */
+  --patina-dim:      #28867f;
+  --patina-base:     #3f8d88;
+  --patina-bright:   #40c9c0;
 
   /* ── neutrals ───────────────────────────────────────────────────── */
   --neutral-black:     #1f2424;
   --neutral-muted:     #82828c;  /* comments, ANSI 8 — 4.72 / 4.57      */
+  --neutral-recede:    #8a9d93;  /* was ramp.stone.base — 6.26 / 6.06    */
   --neutral-secondary: #c8c4be;
   --neutral-primary:   #edeae4;
   --neutral-disabled:  #75757f;  /* 3.99 — non-text use only            */
 
   /* ── semantic — state, never decoration ─────────────────────────── */
-  --warning:         #d97706;  /* deliberately outside the muted limit  */
+  --warning:         var(--ochre-vivid);  /* lives in the ramp since v3 */
   --urgent:          #d96c6c;  /* same value as --clay-base, by design  */
 
   /* ── surfaces ────────────────────────────────────────────────────
@@ -124,25 +129,25 @@
   --file-symlink:    var(--patina-base);
   --file-executable: var(--lichen-base);
   --file-archive:    var(--ochre-base);
-  --file-image:      var(--heather-base);
-  --file-video:      var(--heather-bright);
+  --file-image:      var(--cinnamon-base);
+  --file-video:      var(--cinnamon-bright);
   --file-audio:      var(--ochre-bright);
   --file-document:   var(--patina-bright);
   --file-broken:     var(--clay-base);
 
   --git-added:     var(--sage-base);
   --git-clean:     var(--sage-base);
-  --git-branch:    var(--sage-soft);
+  --git-branch:    var(--sage-bright);
   --git-modified:  var(--ochre-base);
   --git-deleted:   var(--clay-base);
-  --git-untracked: var(--heather-base);
+  --git-untracked: var(--cinnamon-dim);
   --git-ignored:   var(--neutral-muted);
   --git-conflict:  var(--clay-base);
 
   --lang-node:     var(--lichen-base);
   --lang-python:   var(--patina-bright);
   --lang-rust:     var(--ochre-bright);
-  --lang-duration: var(--heather-base);
+  --lang-duration: var(--neutral-recede);
 
   /* ── roles: panel signals ───────────────────────────────────────
      At rest the bar is entirely sage. These appear ONLY on an event. */
@@ -150,7 +155,7 @@
   --panel-weather-normal:   var(--patina-base);
   --panel-weather-hot:      var(--ochre-base);
   --panel-weather-danger:   var(--warning);
-  --panel-media-playing:    var(--heather-base);
+  --panel-media-playing:    var(--cinnamon-base);
   --panel-mic-active:       var(--ochre-base);
   --panel-muted:            var(--neutral-muted);
   --panel-vpn-connected:    var(--sage-base);
@@ -173,7 +178,7 @@
   --ansi-2:  var(--sage-base);
   --ansi-3:  var(--ochre-base);
   --ansi-4:  var(--lichen-base);
-  --ansi-5:  var(--heather-base);
+  --ansi-5:  var(--cinnamon-base);
   --ansi-6:  var(--patina-base);
   --ansi-7:  var(--neutral-secondary);
   --ansi-8:  var(--neutral-muted);
@@ -181,7 +186,7 @@
   --ansi-10: var(--sage-bright);
   --ansi-11: var(--ochre-bright);
   --ansi-12: var(--lichen-bright);
-  --ansi-13: var(--heather-bright);
+  --ansi-13: var(--cinnamon-bright);
   --ansi-14: var(--patina-bright);
   --ansi-15: var(--neutral-primary);
 }

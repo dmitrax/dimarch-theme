@@ -30,12 +30,12 @@
   /* ── ramp, darkened for a light ground (hue preserved) ───────────
      `bright` is DEEPER than `base`, not lighter: on cream, brightness costs
      legibility, so emphasis is carried by contrast (4.6 → 6.5). */
-  --sage:      #347658;  --sage-bright:    #245d43;
-  --clay:      #c23838;  --clay-bright:    #9f2424;
-  --ochre:     #8a6228;  --ochre-bright:   #6f4d19;
-  --lichen:    #557331;  --lichen-bright:  #415b22;
-  --patina:    #347470;  --patina-bright:  #245d59;
-  --heather:   #ab4773;  --heather-bright: #8e335a;
+  --sage:      #347658;  --sage-bright:     #245d43;
+  --clay:      #c23838;  --clay-bright:     #9f2424;
+  --cinnamon:  #a95028;  --cinnamon-bright: #85401f;
+  --ochre:     #8a6228;  --ochre-bright:    #6f4d19;
+  --lichen:    #557331;  --lichen-bright:   #415b22;
+  --patina:    #297570;  --patina-bright:   #205c58;
 
   /* ── semantic — state, never decoration ──────────────────────────── */
   --warning:   #9c5a0d;  /* 4.93 / 4.62 — dark #d97706 gives only 2.6 here */
@@ -69,14 +69,15 @@
   --file-symlink:    var(--patina);
   --file-executable: var(--lichen);
   --file-archive:    var(--ochre);
-  --file-image:      var(--heather);
+  --file-image:      var(--cinnamon);
+  --file-video:      var(--cinnamon-bright);
   --file-document:   var(--patina);
   --file-broken:     var(--clay);
 
   --git-added:     var(--sage);
   --git-modified:  var(--ochre);
   --git-deleted:   var(--clay);
-  --git-untracked: var(--heather);
+  --git-untracked: var(--cinnamon);
   --git-ignored:   var(--text-muted);
 
   /* ── ANSI 16 — ghostty light profile ────────────────────────────
@@ -91,7 +92,7 @@
   --ansi-2:  var(--sage);
   --ansi-3:  var(--ochre);
   --ansi-4:  var(--lichen);
-  --ansi-5:  var(--heather);
+  --ansi-5:  var(--cinnamon);
   --ansi-6:  var(--patina);
   --ansi-7:  var(--text-muted);
   --ansi-8:  var(--comment);
@@ -99,7 +100,7 @@
   --ansi-10: var(--sage-bright);
   --ansi-11: var(--ochre-bright);
   --ansi-12: var(--lichen-bright);
-  --ansi-13: var(--heather-bright);
+  --ansi-13: var(--cinnamon-bright);
   --ansi-14: var(--patina-bright);
   --ansi-15: var(--structural);
 }

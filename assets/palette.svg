@@ -1,167 +1,159 @@
-<svg width="880" height="822" viewBox="0 0 880 822" xmlns="http://www.w3.org/2000/svg" role="img">
+<svg width="880" height="744" viewBox="0 0 880 744" xmlns="http://www.w3.org/2000/svg" role="img">
   <title>DimArch Sage Palette</title>
-  <desc>Colour palette for DimArch OS — sage anchor with five weathered-material accents</desc>
-  <rect width="880" height="822" fill="#fafaf8" rx="12"/>
+  <desc>Colour palette for DimArch OS — sage anchor with four weathered-material accents and a semantic red outside the arc</desc>
+  <rect width="880" height="744" fill="#fafaf8" rx="12"/>
   <text x="40" y="46" font-family="system-ui,-apple-system,sans-serif" font-size="23" font-weight="600" fill="#26332a">DimArch Sage</text>
   <text x="40" y="69" font-family="system-ui,-apple-system,sans-serif" font-size="12.5" fill="#7fb89e">Modern system. Old soul.</text>
-  <text x="840" y="46" text-anchor="end" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#5f7268">One sage, five weathered materials</text>
-  <text x="840" y="67" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#9aa89e">warm arc 334°→176° · 177–333° left empty</text>
+  <text x="840" y="46" text-anchor="end" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#5f7268">One sage, four weathered materials</text>
+  <text x="840" y="67" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#9aa89e">warm arc 0°→176° · 177–333° left empty</text>
   <line x1="40" y1="88" x2="840" y2="88" stroke="#e4e6e0"/>
-  <text x="40" y="151.0" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Sage</text>
-  <text x="40" y="166.0" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">153° · brand</text>
+  <text x="40" y="155.5" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Sage</text>
+  <text x="40" y="170.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">153° · brand</text>
   <rect x="164.0" y="112" width="79.2" height="80" rx="5" fill="#4d9072"/>
   <text x="171.0" y="128" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">SHADE</text>
-  <text x="171.0" y="183" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#4d9072</text>
+  <text x="171.0" y="187" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#4d9072</text>
   <rect x="249.2" y="112" width="79.2" height="80" rx="5" fill="#5b8f78"/>
   <text x="256.2" y="128" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DIM</text>
-  <text x="256.2" y="183" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#5b8f78</text>
+  <text x="256.2" y="187" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#5b8f78</text>
   <rect x="334.5" y="112" width="79.2" height="80" rx="5" fill="#6ba88c"/>
-  <text x="341.5" y="128" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">ICON</text>
-  <text x="341.5" y="183" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#6ba88c</text>
+  <text x="341.5" y="128" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">ICON</text>
+  <text x="341.5" y="187" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#6ba88c</text>
   <rect x="419.8" y="112" width="79.2" height="80" rx="5" fill="#7aad96"/>
   <text x="426.8" y="128" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">MUTED</text>
-  <text x="426.8" y="183" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#7aad96</text>
+  <text x="426.8" y="187" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#7aad96</text>
   <rect x="505.0" y="112" width="79.2" height="80" rx="5" fill="#7fb89e"/>
   <text x="512.0" y="128" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BASE</text>
-  <text x="512.0" y="183" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#7fb89e</text>
+  <text x="512.0" y="187" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#7fb89e</text>
   <rect x="590.2" y="112" width="79.2" height="80" rx="5" fill="#89bca5"/>
   <text x="597.2" y="128" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">DEEP</text>
-  <text x="597.2" y="183" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#89bca5</text>
+  <text x="597.2" y="187" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#89bca5</text>
   <rect x="675.5" y="112" width="79.2" height="80" rx="5" fill="#98c2af"/>
   <text x="682.5" y="128" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">SOFT</text>
-  <text x="682.5" y="183" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#98c2af</text>
+  <text x="682.5" y="187" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#98c2af</text>
   <rect x="760.8" y="112" width="79.2" height="80" rx="5" fill="#c4ddd2"/>
   <text x="767.8" y="128" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BRIGHT</text>
-  <text x="767.8" y="183" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#c4ddd2</text>
-  <text x="40" y="234.0" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Clay</text>
-  <text x="40" y="249.0" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">0° · error · deletion</text>
-  <rect x="164.0" y="206" width="164.5" height="58" rx="5" fill="#2c1818"/>
-  <text x="171.0" y="222" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">TINT</text>
-  <text x="171.0" y="255" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#2c1818</text>
-  <rect x="334.5" y="206" width="164.5" height="58" rx="5" fill="#ac4242"/>
-  <text x="341.5" y="222" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DIM</text>
-  <text x="341.5" y="255" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#ac4242</text>
-  <rect x="505.0" y="206" width="164.5" height="58" rx="5" fill="#d96c6c"/>
-  <text x="512.0" y="222" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">BASE</text>
-  <text x="512.0" y="255" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#d96c6c</text>
-  <rect x="675.5" y="206" width="164.5" height="58" rx="5" fill="#e49393"/>
-  <text x="682.5" y="222" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BRIGHT</text>
-  <text x="682.5" y="255" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#e49393</text>
-  <text x="40" y="302.0" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Ochre</text>
-  <text x="40" y="317.0" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">36° · change · archive</text>
-  <rect x="164.0" y="274" width="221.3" height="58" rx="5" fill="#9f753a"/>
-  <text x="171.0" y="290" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DIM</text>
+  <text x="767.8" y="187" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#c4ddd2</text>
+  <text x="40" y="234.5" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Cinnamon</text>
+  <text x="40" y="249.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">19° · media</text>
+  <rect x="164.0" y="202" width="221.3" height="58" rx="5" fill="#bc5b2f"/>
+  <text x="171.0" y="218" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DIM</text>
+  <text x="171.0" y="255" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#bc5b2f</text>
+  <rect x="391.3" y="202" width="221.3" height="58" rx="5" fill="#c46b45"/>
+  <text x="398.3" y="218" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">BASE</text>
+  <text x="398.3" y="255" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#c46b45</text>
+  <rect x="618.7" y="202" width="221.3" height="58" rx="5" fill="#de895e"/>
+  <text x="625.7" y="218" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BRIGHT</text>
+  <text x="625.7" y="255" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#de895e</text>
+  <text x="40" y="302.5" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Ochre</text>
+  <text x="40" y="317.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">36° · change</text>
+  <rect x="164.0" y="270" width="164.5" height="58" rx="5" fill="#9f753a"/>
+  <text x="171.0" y="286" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DIM</text>
   <text x="171.0" y="323" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#9f753a</text>
-  <rect x="391.3" y="274" width="221.3" height="58" rx="5" fill="#d4a96a"/>
-  <text x="398.3" y="290" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BASE</text>
-  <text x="398.3" y="323" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#d4a96a</text>
-  <rect x="618.7" y="274" width="221.3" height="58" rx="5" fill="#e4ba7a"/>
-  <text x="625.7" y="290" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BRIGHT</text>
-  <text x="625.7" y="323" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#e4ba7a</text>
-  <text x="40" y="370.0" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Lichen</text>
-  <text x="40" y="385.0" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">88° · executable · node</text>
-  <rect x="164.0" y="342" width="221.3" height="58" rx="5" fill="#688349"/>
-  <text x="171.0" y="358" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DIM</text>
+  <rect x="334.5" y="270" width="164.5" height="58" rx="5" fill="#d4a96a"/>
+  <text x="341.5" y="286" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BASE</text>
+  <text x="341.5" y="323" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#d4a96a</text>
+  <rect x="505.0" y="270" width="164.5" height="58" rx="5" fill="#e4ba7a"/>
+  <text x="512.0" y="286" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BRIGHT</text>
+  <text x="512.0" y="323" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#e4ba7a</text>
+  <rect x="675.5" y="270" width="164.5" height="58" rx="5" fill="#d97706"/>
+  <text x="682.5" y="286" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">VIVID</text>
+  <text x="682.5" y="323" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#d97706</text>
+  <text x="40" y="370.5" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Lichen</text>
+  <text x="40" y="385.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">88° · executables</text>
+  <rect x="164.0" y="338" width="221.3" height="58" rx="5" fill="#688349"/>
+  <text x="171.0" y="354" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DIM</text>
   <text x="171.0" y="391" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#688349</text>
-  <rect x="391.3" y="342" width="221.3" height="58" rx="5" fill="#91b06d"/>
-  <text x="398.3" y="358" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BASE</text>
+  <rect x="391.3" y="338" width="221.3" height="58" rx="5" fill="#91b06d"/>
+  <text x="398.3" y="354" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BASE</text>
   <text x="398.3" y="391" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#91b06d</text>
-  <rect x="618.7" y="342" width="221.3" height="58" rx="5" fill="#afc992"/>
-  <text x="625.7" y="358" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BRIGHT</text>
+  <rect x="618.7" y="338" width="221.3" height="58" rx="5" fill="#afc992"/>
+  <text x="625.7" y="354" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BRIGHT</text>
   <text x="625.7" y="391" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#afc992</text>
-  <text x="40" y="438.0" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Patina</text>
-  <text x="40" y="453.0" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">176° · link · document</text>
-  <rect x="164.0" y="410" width="221.3" height="58" rx="5" fill="#4c7673"/>
-  <text x="171.0" y="426" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DIM</text>
-  <text x="171.0" y="459" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#4c7673</text>
-  <rect x="391.3" y="410" width="221.3" height="58" rx="5" fill="#7fb8b4"/>
-  <text x="398.3" y="426" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BASE</text>
-  <text x="398.3" y="459" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#7fb8b4</text>
-  <rect x="618.7" y="410" width="221.3" height="58" rx="5" fill="#8fccc8"/>
-  <text x="625.7" y="426" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BRIGHT</text>
-  <text x="625.7" y="459" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#8fccc8</text>
-  <text x="40" y="506.0" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Heather</text>
-  <text x="40" y="521.0" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">334° · image · media</text>
-  <rect x="164.0" y="478" width="221.3" height="58" rx="5" fill="#93536e"/>
-  <text x="171.0" y="494" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DIM</text>
-  <text x="171.0" y="527" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#93536e</text>
-  <rect x="391.3" y="478" width="221.3" height="58" rx="5" fill="#b87a95"/>
-  <text x="398.3" y="494" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">BASE</text>
-  <text x="398.3" y="527" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#b87a95</text>
-  <rect x="618.7" y="478" width="221.3" height="58" rx="5" fill="#cd98af"/>
-  <text x="625.7" y="494" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BRIGHT</text>
-  <text x="625.7" y="527" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#cd98af</text>
-  <text x="40" y="574.0" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Stone</text>
-  <text x="40" y="589.0" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">148° · recedes · labels</text>
-  <rect x="164.0" y="546" width="221.3" height="58" rx="5" fill="#7a8f84"/>
-  <text x="171.0" y="562" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DIM</text>
-  <text x="171.0" y="595" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#7a8f84</text>
-  <rect x="391.3" y="546" width="221.3" height="58" rx="5" fill="#8a9d93"/>
-  <text x="398.3" y="562" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BASE</text>
-  <text x="398.3" y="595" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#8a9d93</text>
-  <rect x="618.7" y="546" width="221.3" height="58" rx="5" fill="#94a89d"/>
-  <text x="625.7" y="562" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BRIGHT</text>
-  <text x="625.7" y="595" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#94a89d</text>
-  <text x="40" y="646.0" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Neutral</text>
-  <text x="40" y="661.0" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">+ semantic</text>
-  <rect x="164.0" y="620" width="91.4" height="54" rx="5" fill="#1f2424"/>
-  <text x="171.0" y="636" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">BLACK</text>
-  <text x="171.0" y="665" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#1f2424</text>
-  <rect x="261.4" y="620" width="91.4" height="54" rx="5" fill="#75757f"/>
-  <text x="268.4" y="636" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DISABLED</text>
-  <text x="268.4" y="665" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#75757f</text>
-  <rect x="358.9" y="620" width="91.4" height="54" rx="5" fill="#82828c"/>
-  <text x="365.9" y="636" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">MUTED</text>
-  <text x="365.9" y="665" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#82828c</text>
-  <rect x="456.3" y="620" width="91.4" height="54" rx="5" fill="#c8c4be"/>
-  <text x="463.3" y="636" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">SECOND</text>
-  <text x="463.3" y="665" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#c8c4be</text>
-  <rect x="553.7" y="620" width="91.4" height="54" rx="5" fill="#edeae4"/>
-  <text x="560.7" y="636" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">PRIMARY</text>
-  <text x="560.7" y="665" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#edeae4</text>
-  <rect x="651.1" y="620" width="91.4" height="54" rx="5" fill="#d97706"/>
-  <text x="658.1" y="636" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">WARNING</text>
-  <text x="658.1" y="665" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#d97706</text>
-  <rect x="748.6" y="620" width="91.4" height="54" rx="5" fill="#d96c6c"/>
-  <text x="755.6" y="636" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">URGENT</text>
-  <text x="755.6" y="665" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#d96c6c</text>
-  <text x="40" y="710.0" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Surface</text>
-  <text x="40" y="725.0" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">180° · G = B</text>
-  <rect x="164.0" y="684" width="107.7" height="54" rx="5" fill="#0d1919"/>
-  <text x="171.0" y="700" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">CHROME</text>
-  <text x="171.0" y="729" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#0d1919</text>
-  <rect x="277.7" y="684" width="107.7" height="54" rx="5" fill="#172525"/>
-  <text x="284.7" y="700" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">RAISED</text>
-  <text x="284.7" y="729" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#172525</text>
-  <rect x="391.3" y="684" width="107.7" height="54" rx="5" fill="#091313"/>
-  <text x="398.3" y="700" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">GLASS</text>
-  <text x="398.3" y="729" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#091313</text>
-  <rect x="505.0" y="684" width="107.7" height="54" rx="5" fill="#171b1b"/>
-  <text x="512.0" y="700" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">TERMINAL</text>
-  <text x="512.0" y="729" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#171b1b</text>
-  <rect x="618.7" y="684" width="107.7" height="54" rx="5" fill="#1d2121"/>
-  <text x="625.7" y="700" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">LIFT</text>
-  <text x="625.7" y="729" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#1d2121</text>
-  <rect x="732.3" y="684" width="107.7" height="54" rx="5" fill="#324040"/>
-  <text x="739.3" y="700" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">BORDER</text>
-  <text x="739.3" y="729" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#324040</text>
-  <text x="40" y="767.0" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Ornament</text>
-  <text x="40" y="782.0" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">brand only</text>
-  <rect x="164.0" y="748" width="79.2" height="40" rx="5" fill="#2d4a40"/>
-  <text x="171.0" y="764" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">TINT</text>
-  <rect x="249.2" y="748" width="79.2" height="40" rx="5" fill="#3c7059"/>
-  <text x="256.2" y="764" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">CORE</text>
-  <rect x="334.5" y="748" width="79.2" height="40" rx="5" fill="#224334"/>
-  <text x="341.5" y="764" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">MID</text>
-  <rect x="419.8" y="748" width="79.2" height="40" rx="5" fill="#10221a"/>
-  <text x="426.8" y="764" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">EDGE</text>
-  <rect x="505.0" y="748" width="79.2" height="40" rx="5" fill="#4a8b6e"/>
-  <text x="512.0" y="764" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">H-CORE</text>
-  <rect x="590.2" y="748" width="79.2" height="40" rx="5" fill="#2c5a45"/>
-  <text x="597.2" y="764" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">H-MID</text>
-  <rect x="675.5" y="748" width="79.2" height="40" rx="5" fill="#142c22"/>
-  <text x="682.5" y="764" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">H-EDGE</text>
-  <rect x="760.8" y="748" width="79.2" height="40" rx="5" fill="#b0d2c3"/>
-  <text x="767.8" y="764" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">MARK</text>
-  <text x="40" y="809" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#9aa89e">sage marks state · accents mark category · stone recedes · dim tier is for fills, not small text</text>
+  <text x="40" y="438.5" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Patina</text>
+  <text x="40" y="453.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">176° · links</text>
+  <rect x="164.0" y="406" width="221.3" height="58" rx="5" fill="#28867f"/>
+  <text x="171.0" y="422" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DIM</text>
+  <text x="171.0" y="459" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#28867f</text>
+  <rect x="391.3" y="406" width="221.3" height="58" rx="5" fill="#3f8d88"/>
+  <text x="398.3" y="422" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">BASE</text>
+  <text x="398.3" y="459" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#3f8d88</text>
+  <rect x="618.7" y="406" width="221.3" height="58" rx="5" fill="#40c9c0"/>
+  <text x="625.7" y="422" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BRIGHT</text>
+  <text x="625.7" y="459" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#40c9c0</text>
+  <text x="40" y="506.5" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Clay</text>
+  <text x="40" y="521.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">0° · signal only</text>
+  <rect x="164.0" y="474" width="164.5" height="58" rx="5" fill="#2c1818"/>
+  <text x="171.0" y="490" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">TINT</text>
+  <text x="171.0" y="527" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#2c1818</text>
+  <rect x="334.5" y="474" width="164.5" height="58" rx="5" fill="#ac4242"/>
+  <text x="341.5" y="490" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DIM</text>
+  <text x="341.5" y="527" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#ac4242</text>
+  <rect x="505.0" y="474" width="164.5" height="58" rx="5" fill="#d96c6c"/>
+  <text x="512.0" y="490" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">BASE = URGENT</text>
+  <text x="512.0" y="527" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#d96c6c</text>
+  <rect x="675.5" y="474" width="164.5" height="58" rx="5" fill="#e49393"/>
+  <text x="682.5" y="490" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">BRIGHT</text>
+  <text x="682.5" y="527" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#e49393</text>
+  <text x="40" y="572.5" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Neutral</text>
+  <text x="40" y="587.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">text · + warning</text>
+  <rect x="164.0" y="542" width="91.4" height="54" rx="5" fill="#1f2424"/>
+  <text x="171.0" y="558" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">BLACK</text>
+  <text x="171.0" y="591" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#1f2424</text>
+  <rect x="261.4" y="542" width="91.4" height="54" rx="5" fill="#75757f"/>
+  <text x="268.4" y="558" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">DISABLED</text>
+  <text x="268.4" y="591" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#75757f</text>
+  <rect x="358.9" y="542" width="91.4" height="54" rx="5" fill="#82828c"/>
+  <text x="365.9" y="558" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">MUTED</text>
+  <text x="365.9" y="591" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#82828c</text>
+  <rect x="456.3" y="542" width="91.4" height="54" rx="5" fill="#8a9d93"/>
+  <text x="463.3" y="558" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">RECEDE</text>
+  <text x="463.3" y="591" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#8a9d93</text>
+  <rect x="553.7" y="542" width="91.4" height="54" rx="5" fill="#c8c4be"/>
+  <text x="560.7" y="558" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">SECOND</text>
+  <text x="560.7" y="591" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#c8c4be</text>
+  <rect x="651.1" y="542" width="91.4" height="54" rx="5" fill="#edeae4"/>
+  <text x="658.1" y="558" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">PRIMARY</text>
+  <text x="658.1" y="591" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#12201a">#edeae4</text>
+  <rect x="748.6" y="542" width="91.4" height="54" rx="5" fill="#d97706"/>
+  <text x="755.6" y="558" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">WARNING</text>
+  <text x="755.6" y="591" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#d97706</text>
+  <text x="40" y="636.5" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Surface</text>
+  <text x="40" y="651.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">180° · G = B</text>
+  <rect x="164.0" y="606" width="107.7" height="54" rx="5" fill="#0d1919"/>
+  <text x="171.0" y="622" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">CHROME</text>
+  <text x="171.0" y="655" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#0d1919</text>
+  <rect x="277.7" y="606" width="107.7" height="54" rx="5" fill="#172525"/>
+  <text x="284.7" y="622" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">RAISED</text>
+  <text x="284.7" y="655" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#172525</text>
+  <rect x="391.3" y="606" width="107.7" height="54" rx="5" fill="#091313"/>
+  <text x="398.3" y="622" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">GLASS</text>
+  <text x="398.3" y="655" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#091313</text>
+  <rect x="505.0" y="606" width="107.7" height="54" rx="5" fill="#171b1b"/>
+  <text x="512.0" y="622" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">TERMINAL</text>
+  <text x="512.0" y="655" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#171b1b</text>
+  <rect x="618.7" y="606" width="107.7" height="54" rx="5" fill="#1d2121"/>
+  <text x="625.7" y="622" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">LIFT</text>
+  <text x="625.7" y="655" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#1d2121</text>
+  <rect x="732.3" y="606" width="107.7" height="54" rx="5" fill="#324040"/>
+  <text x="739.3" y="622" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">BORDER</text>
+  <text x="739.3" y="655" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" fill="#f4f6f5">#324040</text>
+  <text x="40" y="693.5" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#26332a">Ornament</text>
+  <text x="40" y="708.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#8a9a8e">brand only</text>
+  <rect x="164.0" y="670" width="79.2" height="40" rx="5" fill="#2d4a40"/>
+  <text x="171.0" y="686" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">TINT</text>
+  <rect x="249.2" y="670" width="79.2" height="40" rx="5" fill="#3c7059"/>
+  <text x="256.2" y="686" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">CORE</text>
+  <rect x="334.5" y="670" width="79.2" height="40" rx="5" fill="#224334"/>
+  <text x="341.5" y="686" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">MID</text>
+  <rect x="419.8" y="670" width="79.2" height="40" rx="5" fill="#10221a"/>
+  <text x="426.8" y="686" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">EDGE</text>
+  <rect x="505.0" y="670" width="79.2" height="40" rx="5" fill="#4a8b6e"/>
+  <text x="512.0" y="686" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">H-CORE</text>
+  <rect x="590.2" y="670" width="79.2" height="40" rx="5" fill="#2c5a45"/>
+  <text x="597.2" y="686" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">H-MID</text>
+  <rect x="675.5" y="670" width="79.2" height="40" rx="5" fill="#142c22"/>
+  <text x="682.5" y="686" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#f4f6f5" opacity=".72" letter-spacing=".4">H-EDGE</text>
+  <rect x="760.8" y="670" width="79.2" height="40" rx="5" fill="#b0d2c3"/>
+  <text x="767.8" y="686" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="8.5" fill="#12201a" opacity=".72" letter-spacing=".4">MARK</text>
+  <text x="40" y="731" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="9.5" fill="#9aa89e">sage marks state · accents mark category · clay signals, it does not decorate · CIE76 ≥ 18 and ΔE00 ≥ 9 between families</text>
 </svg>

@@ -1,8 +1,8 @@
 {
   "_comment": "DimArch Sage — official color palette. Source of truth for every color value in the DimArch OS repositories.",
 
-  "_version": "2.0.0",
-  "_updated": "2026-07-26",
+  "_version": "3.0.0",
+  "_updated": "2026-07-27",
 
   "_structure": [
     "Three files. THIS one holds `ramp` (hue families, named after materials) and `role`",
@@ -28,22 +28,59 @@
     "reading as Sage — measured, not hypothetical."
   ],
 
+  "_distinguishability": [
+    "THE MEASURED RULE. Two colours that mark DIFFERENT ENTITIES and can appear side by",
+    "side must differ by CIE76 >= 18 AND CIEDE2000 >= 9. Both, not either: CIE76 is the",
+    "blunter of the two about hue, dE00 about lightness, and each alone lets its own class",
+    "of collision through.",
+    "",
+    "DOMAIN — where it applies:",
+    "  · base tiers of different families",
+    "  · roles inside file.*, git.*, lang.*, panel.*",
+    "  · ANSI slots within their group (1-6 among themselves, 9-14 among themselves)",
+    "",
+    "OUT OF DOMAIN — where closeness is the point, not a defect:",
+    "  · hierarchies: text tiers, surfaces, the eight steps of sage depth",
+    "  · tiers WITHIN one family. They mark kindred categories on purpose — image and video",
+    "    are both media, archive and audio both packed. Nine file categories do not fit six",
+    "    families with every pair above threshold; the fine distinction is carried by the",
+    "    icon, not the hue. Measured: no arrangement of ochre, patina or cinnamon tiers",
+    "    clears 18 internally while keeping AA contrast.",
+    "  · deliberate aliases (urgent == clay.base) — identical values, not near-misses",
+    "",
+    "CALIBRATION, from pairs with a known verdict:",
+    "  worst 'they blend'   — directory vs branch  CIE76  8.2 / dE00  5.1  (owner's verdict)",
+    "                         archive vs audio     CIE76  6.1 / dE00  4.5",
+    "  best  'distinct'     — sage vs lichen       CIE76 23.8 / dE00 13.1  (accepted in v2)",
+    "                         cinnamon vs clay     CIE76 20.0 / dE00 13.3",
+    "The gap is clean and the thresholds sit mid-way on both scales.",
+    "Hue degrees are NOT a metric here and were removed from one: they lie in both",
+    "directions. sage->patina was 23° apart (above the old 20° minimum) at dE00 8.3, while",
+    "cinnamon->ochre is 17° apart at dE00 21.7."
+  ],
+
   "_geometry": [
-    "Warm natural arc 334° → 176°, about 202° long. The 177–333° range is deliberately empty:",
-    "no azure, no violet, no synthetic purple. Rejected on a live test — cold hues fight the",
-    "warm sage and read as foreign. Everforest (already in use in this setup's Obsidian and",
-    "VSCode) is built the same way: its `blue` is teal 172°, its `purple` is pink 331°.",
-    "Neighbour spacing: 26° / 36° / 52° / 65° / 23°. All clear the 20° minimum."
+    "AESTHETICS, not measurement — the companion to _distinguishability, deliberately",
+    "separate so neither gets rewritten when the other changes.",
+    "Warm natural arc 0° → 176°. The 177–333° range is deliberately empty: no azure, no",
+    "violet, no synthetic purple. Rejected on a live test — cold hues fight the warm sage",
+    "and read as foreign. Everforest (already in use in this setup's Obsidian and VSCode)",
+    "is built the same way: its `blue` is teal 172°, its `purple` is pink 331°.",
+    "The complement of the brand, 333° ± 10°, is closed: it breaks the analogous scheme.",
+    "heather sat at 334°, exactly there, and was removed for it 2026-07-27.",
+    "No minimum spacing in degrees — see _distinguishability for why."
   ],
 
   "_contrast": [
     "Measured against surface.chrome #0d1919 and surface.terminal #171b1b.",
     "base and bright tiers clear 4.5:1 (WCAG AA text).",
     "dim tier is for fills, borders, markers and large icons — NOT small text.",
-    "  clay.dim 3.13 · patina.dim 3.59 · heather.dim 3.21 all clear 3:1 for UI but fail AA text.",
-    "  sage.dim is the exception at 4.89 — it doubles as the faded text tier.",
+    "  clay.dim 3.09 · patina.dim 4.11 · cinnamon.dim 4.00 clear 3:1 for UI; only sage.dim",
+    "  (4.82) and lichen.dim (4.21) also clear AA text.",
     "In a muted palette an accent works through DEPTH (lower lightness), not brightness:",
-    "an accent at sage's own lightness competes with it and reads dusty. Verified live."
+    "an accent at sage's own lightness competes with it and reads dusty. Verified live —",
+    "and measured: patina used to sit at sage's exact S and L (28.6 / 61) and was",
+    "indistinguishable from it."
   ],
 
   "ramp_light": {
@@ -57,12 +94,12 @@
       "`dim` is intentionally absent: on a light ground the fill/border role is served by",
       "low-alpha tints of base, not by a separate darker tier."
     ],
-    "sage":    { "base": "#347658", "bright": "#245d43" },
-    "clay":    { "base": "#c23838", "bright": "#9f2424" },
-    "ochre":   { "base": "#8a6228", "bright": "#6f4d19" },
-    "lichen":  { "base": "#557331", "bright": "#415b22" },
-    "patina":  { "base": "#347470", "bright": "#245d59" },
-    "heather": { "base": "#ab4773", "bright": "#8e335a" }
+    "sage":     { "base": "#347658", "bright": "#245d43" },
+    "clay":     { "base": "#c23838", "bright": "#9f2424" },
+    "cinnamon": { "base": "#a95028", "bright": "#85401f" },
+    "ochre":    { "base": "#8a6228", "bright": "#6f4d19" },
+    "lichen":   { "base": "#557331", "bright": "#415b22" },
+    "patina":   { "base": "#297570", "bright": "#205c58" }
   },
 
   "ansi_light": {
@@ -81,7 +118,7 @@
     "2":  "ramp_light.sage.base",
     "3":  "ramp_light.ochre.base",
     "4":  "ramp_light.lichen.base",
-    "5":  "ramp_light.heather.base",
+    "5":  "ramp_light.cinnamon.base",
     "6":  "ramp_light.patina.base",
     "7":  "surface.editor.light.text_muted",
     "8":  "surface.editor.light.comment",
@@ -89,17 +126,19 @@
     "10": "ramp_light.sage.bright",
     "11": "ramp_light.ochre.bright",
     "12": "ramp_light.lichen.bright",
-    "13": "ramp_light.heather.bright",
+    "13": "ramp_light.cinnamon.bright",
     "14": "ramp_light.patina.bright",
     "15": "surface.editor.light.structural"
   },
 
   "ramp": {
     "_note": [
-      "Named after materials: sage, clay, ochre, lichen, patina, heather — plus two",
-      "families that are not accents. `stone` recedes (neutral with a sage bias, for",
-      "text that must step back without going cold). `sage_deep` is brand ornament,",
-      "below the text range entirely — the logo gradient and low tints."
+      "Named after materials. Five families sit on the arc — cinnamon, ochre, lichen,",
+      "sage, patina — and clay sits outside it, serving a convention rather than the",
+      "harmony (see its own _role). `sage_deep` is brand ornament, below the text range",
+      "entirely: the logo gradient and low tints.",
+      "Removed 2026-07-27: `heather` (334°, the brand's complement — see _geometry) and",
+      "`stone`, which was a neutral pretending to be a family and moved to neutral.recede."
     ],
 
     "sage": {
@@ -140,6 +179,15 @@
 
     "clay": {
       "_role": "SEMANTIC ONLY — negative states. Never decorative. clay.base IS `urgent`.",
+      "_outside_the_arc": [
+        "Deliberately does not fit the palette. Red for failure is a cross-platform",
+        "convention, and a signal that blends into the harmony stops reading as a signal.",
+        "That it 'sticks out' is the design, not drift — confirmed by the owner 2026-07-27.",
+        "This is only honest as long as clay stays out of decoration: verified the same day",
+        "that every one of its 15 uses is semantic (ANSI 1/9, git.deleted, error notices,",
+        "urgent, hyprlock fail, rofi danger, cut marker, write permission).",
+        "It is not a rare colour — ANSI 1/9 means it is lit by any red terminal output."
+      ],
       "_hue": 0,
       "tint":   "#2c1818",
       "_tint_note": "Fill behind an error message — rofi's error-message background. Was #2c181c at hue 348; brought to 0. clay.base on it gives 5.05, neutral.primary 13.98.",
@@ -148,12 +196,35 @@
       "bright": "#e49393"
     },
 
+    "cinnamon": {
+      "_role": [
+        "Media — images, video, the playing indicator. Added 2026-07-27 to take the",
+        "roles heather left behind; without it media had no family of its own and would",
+        "have shared lichen with executables at dE00 7.8, below threshold.",
+        "Hue picked by calculation, not taste: at 26° it collides with ochre (dE00 6.9),",
+        "at 22° with ochre.dim, at 19° the worst pair in the whole palette is 13.3 with",
+        "clay. Saturation held inside the palette's own range (52-60 against ochre's 55)",
+        "— above that the family reads acid rather than muted."
+      ],
+      "_hue": 19,
+      "dim":    "#bc5b2f",
+      "base":   "#c46b45",
+      "bright": "#de895e"
+    },
+
     "ochre": {
       "_role": "Change, archives, duration, attention without alarm.",
       "_hue": 36,
       "dim":    "#9f753a",
       "base":   "#d4a96a",
-      "bright": "#e4ba7a"
+      "bright": "#e4ba7a",
+      "vivid":  "#d97706",
+      "_vivid_note": [
+        "This is the old `semantic.warning`, moved here 2026-07-27 without changing value.",
+        "It is 4° from ochre.base in hue — it was always a tier of ochre that happened to",
+        "live in the semantic section. At S 95% it stays outside the muted range on purpose,",
+        "so a warning still cuts through. `semantic.warning` now points at this entry."
+      ]
     },
 
     "lichen": {
@@ -167,41 +238,40 @@
     "patina": {
       "_role": "Links, documents, symlinks, cool weather. The cold limit of the palette.",
       "_hue": 176,
-      "dim":    "#4c7673",
-      "base":   "#7fb8b4",
-      "bright": "#8fccc8"
-    },
-
-    "heather": {
-      "_role": "Images, media, selection. Replaces synthetic violet, stays on the warm side.",
-      "_hue": 334,
-      "dim":    "#93536e",
-      "base":   "#b87a95",
-      "bright": "#cd98af"
-    },
-
-    "stone": {
-      "_role": [
-        "Weathered stone — neutral carrying a slight sage bias. Secondary labels,",
-        "section headers, dimmer UI text: places that must recede without going cold.",
-        "Added 2026-07-26 during the herdr pilot, which needed three such tiers and",
-        "found the palette offering only two unsuitable options — neutral.muted is",
-        "hue 240 (outright cold) and the sage ramp is three times more saturated.",
-        "Values taken unchanged from herdr: they already cleared AA on both grounds.",
-        "NOT an accent family — it marks neither state nor category, it recedes."
-      ],
-      "_hue": 148,
-      "dim":    "#7a8f84",
-      "base":   "#8a9d93",
-      "bright": "#94a89d"
+      "dim":    "#28867f",
+      "base":   "#3f8d88",
+      "bright": "#40c9c0",
+      "_recut_note": [
+        "Recut 2026-07-27, was #4c7673 / #7fb8b4 / #8fccc8. The old base carried sage's",
+        "EXACT saturation and lightness (28.6 / 61) and differed only in hue, by 23° —",
+        "so symlink was indistinguishable from directory (CIE76 12.2 / dE00 8.3), weather",
+        "from VPN, ANSI 6 from ANSI 2. Seven of the palette's thirteen violations were",
+        "this one cause.",
+        "Hue could not move: 176° is the arc's cold edge. The fix is depth and saturation",
+        "instead — base now 20.4 / 16.4 from sage.base, bright 24.7 / 14.9 from sage.bright.",
+        "The deeper, more saturated cut was chosen over a milder one so patina reads as its",
+        "own colour rather than a tint of the brand."
+      ]
     }
   },
 
   "neutral": {
     "black":     "#1f2424",
     "muted":     "#82828c",
+    "recede":    "#8a9d93",
     "secondary": "#c8c4be",
     "primary":   "#edeae4",
+
+    "_recede_note": [
+      "Was `ramp.stone.base` until 2026-07-27 — a neutral with a sage bias, for text that",
+      "must step back without going cold (neutral.muted is hue 240, outright cold).",
+      "It lived in `ramp` as a three-tier family, but herdr's own config records that two",
+      "of those tiers have 'no visible effect found': only this one paints anything.",
+      "As a neutral it is also out of the distinguishability rule's domain, which it never",
+      "passed as a family — it stands beside sage by design rather than against it.",
+      "Retired with it: stone.dim #7a8f84 and stone.bright #94a89d.",
+      "6.26 / 6.06 on chrome and terminal."
+    ],
 
     "_muted_note": [
       "Raised from #75757f (3.99:1 — below AA) 2026-07-26. That value was set by pixel-sampling",
@@ -217,10 +287,12 @@
       "`urgent` is deliberately the same value as clay.base: the clay family is itself",
       "semantic (errors, deletions, broken links, critical load) and appears nowhere",
       "decorative, so the signal is not diluted by sharing one hex.",
-      "`warning` is NOT ochre — at 95% saturation it sits outside the palette's muted limit",
-      "on purpose, so it can cut through instantly. Keep it a separate token."
+      "`warning` IS ochre — 4° from ochre.base in hue. It was moved into the ramp as",
+      "`ochre.vivid` 2026-07-27 and is referenced from there; the value did not change.",
+      "It stays at 95% saturation, outside the palette's muted limit on purpose, so it",
+      "can cut through instantly."
     ],
-    "warning": "#d97706",
+    "warning": "ramp.ochre.vivid",
     "urgent":  "#d96c6c"
   },
 
@@ -322,7 +394,9 @@
       "faded":     "ramp.sage.dim",
       "neutral":   "neutral.primary",
       "comment":   "neutral.muted",
-      "on_accent": "surface.terminal.on_accent"
+      "recede":    "neutral.recede",
+      "on_accent": "surface.terminal.on_accent",
+      "_recede_note": "Muted section labels and timings — steps back without going cold. herdr's overlay0, starship's cmd_duration."
     },
 
     "ui": {
@@ -355,29 +429,42 @@
       "symlink":    "ramp.patina.base",
       "executable": "ramp.lichen.base",
       "archive":    "ramp.ochre.base",
-      "image":      "ramp.heather.base",
-      "video":      "ramp.heather.bright",
+      "image":      "ramp.cinnamon.base",
+      "video":      "ramp.cinnamon.bright",
       "audio":      "ramp.ochre.bright",
       "document":   "ramp.patina.bright",
-      "broken":     "ramp.clay.base"
+      "broken":     "ramp.clay.base",
+      "_tier_note": [
+        "Nine categories on six families, so three pairs share a family by tier:",
+        "image/video on cinnamon, archive/audio on ochre, symlink/document on patina.",
+        "Those pairs sit below the distinguishability threshold on purpose — they are",
+        "kindred categories and the icon carries the finer distinction. See",
+        "_distinguishability: the rule does not reach inside a family."
+      ]
     },
 
     "git": {
       "added":     "ramp.sage.base",
       "clean":     "ramp.sage.base",
-      "branch":    "ramp.sage.soft",
+      "branch":    "ramp.sage.bright",
       "modified":  "ramp.ochre.base",
       "deleted":   "ramp.clay.base",
-      "untracked": "ramp.heather.base",
+      "untracked": "ramp.cinnamon.dim",
       "ignored":   "neutral.muted",
-      "conflict":  "ramp.clay.base"
+      "conflict":  "ramp.clay.base",
+      "_branch_note": [
+        "Was sage.soft until 2026-07-27, one tier away from the directory it stands next",
+        "to in the prompt: CIE76 8.2 / dE00 5.1, physically indistinguishable. On bright",
+        "it is 21.4 / 14.4 and becomes the lightest thing in the prompt while staying",
+        "inside the brand — this is what sage's eight tiers are for."
+      ]
     },
 
     "lang": {
       "node":   "ramp.lichen.base",
       "python": "ramp.patina.bright",
       "rust":   "ramp.ochre.bright",
-      "duration": "ramp.heather.base"
+      "duration": "neutral.recede"
     },
 
     "panel": {
@@ -386,7 +473,7 @@
       "weather_normal": "ramp.patina.base",
       "weather_hot":    "ramp.ochre.base",
       "weather_danger": "semantic.warning",
-      "media_playing":  "ramp.heather.base",
+      "media_playing":  "ramp.cinnamon.base",
       "mic_active":     "ramp.ochre.base",
       "muted":          "neutral.muted",
       "vpn_connected":  "ramp.sage.base",
@@ -420,7 +507,7 @@
     "2":  "ramp.sage.base",
     "3":  "ramp.ochre.base",
     "4":  "ramp.lichen.base",
-    "5":  "ramp.heather.base",
+    "5":  "ramp.cinnamon.base",
     "6":  "ramp.patina.base",
     "7":  "neutral.secondary",
     "8":  "neutral.muted",
@@ -428,7 +515,7 @@
     "10": "ramp.sage.bright",
     "11": "ramp.ochre.bright",
     "12": "ramp.lichen.bright",
-    "13": "ramp.heather.bright",
+    "13": "ramp.cinnamon.bright",
     "14": "ramp.patina.bright",
     "15": "neutral.primary"
   },
@@ -443,6 +530,18 @@
     "  clay.base and urgent being presented as unrelated (they are one value by design),",
     "  and the loss of #6ba88c, which is pinned by an explicit user request in waybar.",
     "  Retired values: #c47a7a #d48a8a (-> clay), #a07fb8 #b08fc8 (-> heather),",
-    "  #7a9cc4 #8aacd4 (-> lichen/patina), #75757f (-> neutral.muted, kept as disabled)."
+    "  #7a9cc4 #8aacd4 (-> lichen/patina), #75757f (-> neutral.muted, kept as disabled).",
+    "2026-07-27 — v3. The rule was rebuilt first, then the palette fixed against it.",
+    "  Distinguishability split out of geometry onto two measured metrics and calibrated",
+    "  on pairs with a known verdict; it found 13 violations, 7 of them one cause.",
+    "  · heather removed — 334° is the brand's complement and breaks the analogous scheme",
+    "  · cinnamon added at 19° — media had no family left and would otherwise have shared",
+    "    lichen with executables below threshold",
+    "  · patina recut — its base carried sage's exact saturation and lightness",
+    "  · ochre gained `vivid`: the old semantic.warning, same value, correct home",
+    "  · stone retired into neutral.recede — a neutral that had been posing as a family",
+    "  · git.branch moved off sage.soft, one tier from the directory it stands beside",
+    "  Retired values: #b87a95 #cd98af #93536e (heather), #7a8f84 #94a89d (stone),",
+    "  #4c7673 #7fb8b4 #8fccc8 (patina, recut)."
   ]
 }

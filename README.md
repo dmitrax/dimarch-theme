@@ -59,11 +59,16 @@ nothing to defend it during a later cleanup:
 | Family | Hue | Carries |
 |---|---|---|
 | **Sage** | 153° | brand, all text, every interface state |
-| **Clay** | 0° | errors, deletions, broken links, critical load |
+| **Cinnamon** | 19° | images, video, media |
 | **Ochre** | 36° | change, archives, duration, attention without alarm |
 | **Lichen** | 88° | executables, Node, caffeine |
 | **Patina** | 176° | links, documents, symlinks, cool weather |
-| **Heather** | 334° | images, video, media, selection |
+| **Clay** | 0° | errors, deletions, broken links, critical load — *outside the arc* |
+
+Clay is listed last because it does not belong to the harmony. Red for failure is a
+cross-platform convention, and a signal that blends in stops reading as a signal, so it
+is allowed to stick out. That stays honest only while clay is never decorative: all
+fifteen of its uses are semantic.
 
 ### The rule that holds it together
 
@@ -82,12 +87,30 @@ a module has something to report.
 
 ### Geometry
 
-The palette occupies a warm arc from 334° to 176°, about 202° long. The range
-**177–333° is deliberately empty** — no azure, no violet, no synthetic purple. Cold hues
-were tried and rejected on a live test: next to a warm, low-saturation sage they read as
-foreign rather than complementary.
+The palette occupies a warm arc from 0° to 176°. The range **177–333° is deliberately
+empty** — no azure, no violet, no synthetic purple. Cold hues were tried and rejected on
+a live test: next to a warm, low-saturation sage they read as foreign rather than
+complementary. The brand's complement at 333° ± 10° is closed too: it breaks the
+analogous scheme. A magenta family sat there until v3 and was removed for it.
 
-Neighbour spacing is 26° / 36° / 52° / 65° / 23°, all clear of the 20° minimum.
+There is no minimum spacing in degrees, because degrees measure the wrong thing.
+
+### Distinguishability
+
+Two colours that mark **different entities** and can appear side by side must differ by
+**CIE76 ≥ 18 and CIEDE2000 ≥ 9** — both, since each metric alone lets its own class of
+collision through. The thresholds are calibrated on pairs with a known verdict: the
+worst pair judged "these blend" sits at 8.2 / 5.1, the best judged "clearly different"
+at 23.8 / 13.1.
+
+Hue degrees fail this job in both directions. Sage and patina were 23° apart — above the
+old 20° minimum — and still indistinguishable; cinnamon and ochre are 17° apart and
+plainly different. Running the rule found thirteen collisions the degree minimum had
+passed, seven of them from one cause: patina had been given sage's exact saturation and
+lightness, so a symlink looked like a directory.
+
+The rule does **not** reach inside a family. Tiers of one family mark kindred categories
+on purpose — image and video are both media — and the icon carries the finer distinction.
 
 Every accent works through **depth** rather than brightness. At sage's own lightness an
 accent competes with it and reads dusty; darker and slightly more saturated, it grounds
@@ -134,7 +157,7 @@ palette role file.archive          # resolve one value
 palette ramp sage                  # a hue family with contrast figures
 ```
 
-`check` verifies 179 keys across six colour notations and exits non-zero on a
+`check` verifies 199 keys across six colour notations and exits non-zero on a
 mismatch, so it works from a hook or CI. `dimarch` runs it from a pre-commit hook that
 reports without blocking — components are still being migrated, and a hook that has to
 be bypassed daily ends up disabled.
@@ -154,7 +177,7 @@ same hue (152° and 153°), so the terminal nominally had two colours and effect
 | 2 green | `sage.base` | 10 | `sage.bright` |
 | 3 yellow | `ochre.base` | 11 | `ochre.bright` |
 | 4 blue | `lichen.base` | 12 | `lichen.bright` |
-| 5 magenta | `heather.base` | 13 | `heather.bright` |
+| 5 magenta | `cinnamon.base` | 13 | `cinnamon.bright` |
 | 6 cyan | `patina.base` | 14 | `patina.bright` |
 
 Slots 0, 7, 8 and 15 are the neutrals. Slot 0 is structural — never a readable foreground.
