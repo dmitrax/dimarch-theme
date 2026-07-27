@@ -197,6 +197,13 @@
       "tint":   "#2c1818",
       "_tint_note": "Fill behind an error message — rofi's error-message background. Was #2c181c at hue 348; brought to 0. clay.base on it gives 5.05, neutral.primary 13.98.",
       "dim":    "#ac4242",
+      "_dim_note": [
+        "No consumer as of 2026-07-27 — checked with `palette where`. Kept rather than",
+        "removed: every family carries three tiers, and clay's fill/border tier is the one",
+        "an error surface would reach for the moment rofi's error box or a critical panel",
+        "state needs a border. Retiring it would mean re-deriving the same value later.",
+        "3.09 on chrome — fills and borders only, never small text."
+      ],
       "base":   "#d96c6c",
       "bright": "#e49393"
     },
@@ -304,8 +311,12 @@
   "surface": {
     "_note": [
       "Hue unified to 180° on 2026-07-26 (from 190–195°). At 180° G equals B — the point where",
-      "the blue cast disappears but green does not yet dominate, satisfying the project's own",
-      "G>=B rule. Contrast cost is negligible (12.67 -> 12.49 to sage.bright).",
+      "the blue cast disappears but green does not yet dominate. Contrast cost is negligible",
+      "(12.67 -> 12.49 to sage.bright).",
+      "The old `G>=B` rule is retired as a rule: at this lightness and saturation a shift of",
+      "two units per channel is not visible, so it forbade differences nobody could see. Hue",
+      "on a near-neutral ground is a tie-breaker between equally good values, not a",
+      "constraint — pick 180 when there is no reason to pick otherwise.",
       "An earlier green shift was reverted, but that attempt (#181e1a) changed THREE things at",
       "once — hue, +5pp lightness and a third of the saturation. The 'muddy khaki' reading",
       "likely came from the lightness. A pure hue shift had never been tried.",
@@ -473,7 +484,20 @@
     },
 
     "panel": {
-      "_note": "At rest the bar is entirely sage. Accents appear ONLY on an event.",
+      "_note": [
+        "At rest the bar is entirely sage. Accents appear ONLY on an event.",
+        "HOW THE TWO RULES MEET HERE, settled 2026-07-27 — the general rule says an accent",
+        "may never mark a state, and a panel module lighting up IS a state, so the split is",
+        "by what the colour has to tell apart:",
+        "  · binary toggles — VPN, caffeine — take SAGE. On or off; there is nothing to",
+        "    distinguish, the icon already says which module it is.",
+        "  · modules where the KIND of signal differs — weather cold/hot/dangerous, mic,",
+        "    media — take an accent, because the colour carries information the icon does not.",
+        "  · alarms take `semantic`, never a brand or accent value.",
+        "Before this, caffeine sat on lichen and marked a pure state with an accent, while",
+        "weather sat on sage.soft in the live config and marked a category with the brand —",
+        "the same rule broken in both directions at once."
+      ],
       "weather_cold":   "ramp.patina.bright",
       "weather_normal": "ramp.patina.base",
       "weather_hot":    "ramp.ochre.base",
@@ -481,8 +505,8 @@
       "media_playing":  "ramp.cinnamon.base",
       "mic_active":     "ramp.ochre.base",
       "muted":          "neutral.muted",
-      "vpn_connected":  "ramp.sage.base",
-      "caffeine":       "ramp.lichen.base",
+      "vpn_connected":  "ramp.sage.bright",
+      "caffeine":       "ramp.sage.bright",
       "notification":   "ramp.sage.bright",
       "dnd":            "semantic.warning",
       "capslock":       "semantic.warning",

@@ -234,6 +234,7 @@
       "accent_dark": "ramp.sage.deep",
       "urgent": "ramp.clay.base",
       "warning": "semantic.warning",
+      "weather": "role.panel.weather_normal",
       "border_soft": "surface.chrome.border",
       "border_module": "surface.chrome.module"
     },
