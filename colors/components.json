@@ -56,6 +56,39 @@
       "blue and green previously shared hue 152/153, two slots carrying one colour."
     ]
   },
+  "ghostty-light": {
+    "_file": "dotfiles/ghostty/.config/ghostty/light.ghostty",
+    "_format": "ghostty",
+    "_status": "migrated",
+    "_ground": "light",
+    "keys": {
+      "palette.0": "ansi_light.0",
+      "palette.1": "ansi_light.1",
+      "palette.2": "ansi_light.2",
+      "palette.3": "ansi_light.3",
+      "palette.4": "ansi_light.4",
+      "palette.5": "ansi_light.5",
+      "palette.6": "ansi_light.6",
+      "palette.7": "ansi_light.7",
+      "palette.8": "ansi_light.8",
+      "palette.9": "ansi_light.9",
+      "palette.10": "ansi_light.10",
+      "palette.11": "ansi_light.11",
+      "palette.12": "ansi_light.12",
+      "palette.13": "ansi_light.13",
+      "palette.14": "ansi_light.14",
+      "palette.15": "ansi_light.15"
+    },
+    "_findings": [
+      "The light profile is a real, applied config — not a plan. It was missing from",
+      "this map until 2026-07-27, so `palette check` never looked at it, and the v3",
+      "accent work silently left heather (removed) in slots 5/13 and the pre-recut",
+      "patina in 6/14. Anything with a light ground belongs here for the same reason.",
+      "Loaded explicitly: ghostty --config-file=~/.config/ghostty/light.ghostty",
+      "background / foreground / cursor-color are written without a leading '#' in",
+      "this format and are not mapped yet — they resolve to surface.editor.light.*"
+    ]
+  },
   "herdr": {
     "_file": "dotfiles/herdr/.config/herdr/config.toml",
     "_format": "toml",

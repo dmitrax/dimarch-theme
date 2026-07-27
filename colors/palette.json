@@ -110,8 +110,13 @@
       "ground that role falls to bright white instead. Slot 0 becomes the darkest text.",
       "Everything else clears AA — the profile previously had 11 of 13 colour slots below",
       "the threshold (as low as 2.23), and blue duplicated green's hue exactly, the same",
-      "defect the dark profile had. NOT YET APPLIED to light.ghostty: slot 4 is lichen,",
-      "which is still pending a live look — see ROADMAP step 1.2."
+      "defect the dark profile had.",
+      "APPLIED in dotfiles/ghostty/.config/ghostty/light.ghostty. This note used to say",
+      "'not yet applied' and was wrong: the profile had been written and was in use, but",
+      "the file was missing from components.json, so `palette check` never read it. The v3",
+      "accent work therefore left the removed heather in slots 5/13 and the pre-recut",
+      "patina in 6/14 without a word. Fixed and mapped 2026-07-27 — a config nobody checks",
+      "drifts exactly as fast as one nobody wrote."
     ],
     "0":  "surface.editor.light.text",
     "1":  "ramp_light.clay.base",
